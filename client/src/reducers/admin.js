@@ -1,4 +1,4 @@
-export const admin = (data = [], action) => {
+export const admin = (data = {}, action) => {
     switch (action.type) {
         case "FETCH_PROFILE":
             return action.payload;
@@ -13,6 +13,8 @@ export const cashiers = (data = [], action) => {
     switch (action.type) {
         case "FETCH_CASHIERS":
             return action.payload;
+        case "HIRE_CASHIER":
+            return [...data, action.payload];
         case "UPDATE_CASHIER":
             return data.map((cashier) => cashier._id === action.payload._id ? action.payload : cashier);
         case "DELETE_CASHIER":
@@ -48,7 +50,7 @@ export const breads = (data = [], action) => {
         case "DELETE_BREAD":
             return data.filter((bread) => bread._id !== action.payload);
         case "ADD_BREAD":
-            return action.payload;
+            return [...data, action.payload];
         default:
             return data;
     }

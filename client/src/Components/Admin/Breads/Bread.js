@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { useLocation, Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import FileBase from "react-file-base64";
 import { updateBread } from '../../../Actions/admin.js';
+import DefaultBread from '../../../Images/default-bread.png';
 
 function Bread({ theme }) {
   const location = useLocation();
@@ -25,11 +27,15 @@ function Bread({ theme }) {
     (bread && (<div>
       <div className="d-flex justify-content-center">
         <br />
-        <div className="col-md-5 m-3">
+        <div className="col-md-6 m-3">
           <div className={`card-body bg-${theme.color} text-${theme.text}`}>
-            <img src="https://hips.hearstapps.com/hmg-prod/images/banana-bread-1581535174.jpg?crop=0.9990570485619991xw:1xh;center,top&resize=980:*" className="card-img-top" alt={bread.name} />
+            <img src={(bread.image !== "")? bread.image: DefaultBread} className="card-img-top" alt={bread.name} />
             <form onSubmit={handleSubmit} className='mt-3'>
               <table className="card-title" width="100%" cellPadding={3}>
+                <tr>
+                  <th>Image</th>
+                  <td><FileBase type="file" multiple={false} onDone={({ base64 }) => setBread({ ...bread, image: base64 })}></FileBase></td>
+                </tr>
                 <tr>
                   <th>Name</th>
                   <td><input className="form-control" type="text" name="name" value={bread.name} onChange={handleChange}></input></td>

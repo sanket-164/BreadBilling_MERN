@@ -48,12 +48,12 @@ export const updateCashier = async (req, res) => {
     const { id } = req.params;
     const { cashier } = req.body;
 
-    console.log(id, req.body.cashier);
     try {
         const data = await Cashier.findByIdAndUpdate(id, {
             name: cashier.name,
             email: cashier.email,
             phone: cashier.phone,
+            image: cashier.image,
             gender: cashier.gender,
             birthday: cashier.birthday
         });

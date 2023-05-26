@@ -29,7 +29,7 @@ export const fetchBreads = async (req, res) => {
 
 export const addBread = async (req, res) => {
     const { bread } = req.body;
-
+    console.log(bread)
     try {
         const data = await Bread.create(bread);
         
@@ -42,6 +42,8 @@ export const addBread = async (req, res) => {
 export const updateBread = async (req, res) => {
     const { id } = req.params;
     const { bread } = req.body;
+
+    console.log(bread);
 
     try {
         const data = await Bread.findByIdAndUpdate( id, bread);

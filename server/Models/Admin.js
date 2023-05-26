@@ -19,7 +19,7 @@ const adminSchema = new mongoose.Schema({
     },
     image: {
         type: String,
-        required: true,
+        default: ""
     },
     gender: {
         type: String,
@@ -31,8 +31,7 @@ const adminSchema = new mongoose.Schema({
     },
     joinedAt: {
         type: Date,
-        required: true,
-        default: Date.now(),
+        required: true
     }
 })
 

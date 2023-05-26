@@ -12,7 +12,7 @@ export const fetchProfile = () => async (dispatch) => {
 
 export const updateProfile = (admin) => async (dispatch) => {
     try {
-        const { data } = await api.updateProfile();
+        const { data } = await api.updateProfile(admin);
         
         dispatch({ type: "UPDATE_PROFILE", payload: data });
     } catch (err) {
@@ -34,7 +34,7 @@ export const hireCashier = (cashier) => async (dispatch) => {
     try {
         const { data } = await api.hireCashier(cashier);
 
-        dispatch({ type: "FETCH_CASHIER", payload: data });
+        dispatch({ type: "HIRE_CASHIER", payload: data });
     } catch (err) {
         console.log(err.message);
     }

@@ -12,9 +12,10 @@ const breadSchema = new mongoose.Schema({
     description: {
         type: String,
     },
-    img: {
+    image: {
         type: String,
-    }
+        default: ""
+    },
 })
 
 export default mongoose.model('Bread' , breadSchema);
