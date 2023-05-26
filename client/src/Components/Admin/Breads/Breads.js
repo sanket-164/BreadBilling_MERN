@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { fetchBreads } from "../../../Actions/admin.js"
 import { useLocation } from 'react-router-dom';
 import { deleteBread, addBread } from '../../../Actions/admin.js';
+import DefaultBread from '../../../Images/default-bread.png'
 
 function Breads({ theme }) {
   const navigate = useNavigate();
@@ -82,11 +83,12 @@ function Breads({ theme }) {
       </div>
 
       {(breads.length !== 0) && (
-        <div>
-          <table className={`table table-${theme.color} table-hover`}>
+        <div className='container'>
+          <table className={`table table-${theme.color} table-hover fs-5`}>
             <thead>
               <tr>
                 <th scope="col">No.</th>
+                <th scope="col">Image</th>
                 <th scope="col">Name</th>
                 <th scope="col">Amount</th>
                 <th scope="col">REMOVE</th>
@@ -97,10 +99,13 @@ function Breads({ theme }) {
               {breads.map((bread, i) => {
                 return (<tr role="button">
                   <th scope="row">{i + 1}</th>
+                  <td onClick={() => navigateToBread(bread)}>
+                    <img src={(bread.image !== "") && (bread.image !== undefined)? bread.image: DefaultBread} alt={bread.name} height="65px" width="65px" className={`rounded-2 border border-2 border-${theme.color === 'light' ? 'dark' : 'light'}`} />
+                  </td>
                   <td onClick={() => navigateToBread(bread)}>{bread.name}</td>
-                  <td onClick={() => navigateToBread(bread)}>{bread.amount}</td>
+                  <td onClick={() => navigateToBread(bread)}>₹{bread.amount}</td>
                   <td>
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#removeBread" name="fire-btn" value={bread._id + ',' + bread.name} className="btn btn-danger w-100" onClick={removeBread}>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#removeBread" name="fire-btn" value={bread._id + ',' + bread.name} className="btn btn-danger btn-lg w-100 my-2" onClick={removeBread}>
                       REMOVE
                     </button>
                   </td>

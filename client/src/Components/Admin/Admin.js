@@ -9,6 +9,7 @@ import Bills from './Bills/Bills';
 import Bill from './Bills/Bill';
 import Bread from './Breads/Bread';
 import Breads from './Breads/Breads';
+import Temp from './Cashiers/Temp';
 import Settings from './Settings';
 
 function Admin() {
@@ -28,6 +29,7 @@ function Admin() {
                 <Route path='/bill' exact element={<Bill theme={theme}/>} />
                 <Route path='/breads' exact element={<Breads theme={theme}/>} />
                 <Route path='/bread' exact element={<Bread theme={theme}/>} />
+                <Route path='/temp' exact element={<Temp theme={theme}/>} />
                 <Route path='/settings' exact element={<Settings theme={theme} setTheme={setTheme}/>} />
             </Routes>
         </BrowserRouter>

@@ -97,7 +97,7 @@ const YourComponent = ({ theme }) => {
               <tr>
                 <td>
                   <label for="cashier-birthday" class="form-label">Birthday</label>
-                  <input className="form-control" type="date" name="birthday" id="cashier-birthday" value={cashier_birthday} onChange={handleChange}></input></td>
+                  <input className="form-control" type="date" name="email" id="cashier-birthday" value={cashier_birthday} onChange={handleChange}></input></td>
               </tr>
             </table>
             <div className="d-flex justify-content-between align-items-end mt-3">
