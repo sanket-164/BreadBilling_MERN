@@ -31,7 +31,7 @@ const YourComponent = ({ theme }) => {
     <div className="container mt-3">
       <div className={`row bg-${theme.color} text-${theme.text}`}>
         <div className="col-lg-6 col-md-11">
-          <img src={(cashier.image !== "") ? cashier.image : DefaultCashier} alt={cashier.name} className={`img-fluid mt-3 mb-3 px-2 py-1 w-100`} />
+          <img src={(cashier.image !== "") && (cashier.image !== undefined)? cashier.image : DefaultCashier} alt={cashier.name} className={`img-fluid mt-3 mb-3 px-2 py-1 w-100`} />
         </div>
         <div className="col-lg-6 col-md-12">
           <form onSubmit={handleSubmit} className='mt-3 h-100'>

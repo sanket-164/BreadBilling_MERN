@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { fetchBreads } from "../../../Actions/admin.js"
+import { fetchBreads } from "../../../Actions/admin.js";
 import { useLocation } from 'react-router-dom';
+import FileBase from 'react-file-base64';
 import { deleteBread, addBread } from '../../../Actions/admin.js';
 import DefaultBread from '../../../Images/default-bread.png'
 
@@ -10,7 +11,7 @@ function Breads({ theme }) {
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
-  const [bread, setBread] = useState({ name: "", amount: "", description: "" });
+  const [bread, setBread] = useState({ name: "", amount: "", description: "", image: ""});
 
   useEffect(() => {
     dispatch(fetchBreads());
@@ -19,7 +20,7 @@ function Breads({ theme }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addBread({ bread: bread }));
-    setBread({ name: "", amount: "", description: "" });
+    setBread({ name: "", amount: "", description: "", image: ""});
     navigate('/breads');
   }
 
@@ -56,10 +57,16 @@ function Breads({ theme }) {
             <div className={`modal-content bg-${theme.color}`}>
               <div className="modal-header">
                 <h5 className="modal-title" id="staticBackdropLabel">Enter Details for New Bread</h5>
-                <button type="button" className={`btn-close bg-${theme.color === 'light' ? 'dark' : 'light'}`} data-bs-dismiss="modal" aria-label="Close" onClick={() => setBread({ name: "", amount: "", description: "" })}></button>
+                <button type="button" className={`btn-close bg-${theme.color === 'light' ? 'dark' : 'light'}`} data-bs-dismiss="modal" aria-label="Close" onClick={() => setBread({ name: "", amount: "", description: "", image: "" })}></button>
               </div>
               <form onSubmit={handleSubmit}>
                 <div className="modal-body">
+                  <div className="mb-3">
+                    <label for="bread-image" class="form-label">Image</label>
+                    <div id="bread-image">
+                      <FileBase type="file" multiple={false} onDone={({ base64 }) => setBread({ ...bread, image: base64 })}></FileBase>
+                    </div>
+                  </div>
                   <div className="mb-3">
                     <label htmlhtmlFor="name" className="form-label">Bread's Name</label>
                     <input type="text" className="form-control" id="name" name="name" value={bread.name} onChange={handleChange} placeholder="Bread" required />
@@ -100,12 +107,12 @@ function Breads({ theme }) {
                 return (<tr role="button">
                   <th scope="row">{i + 1}</th>
                   <td onClick={() => navigateToBread(bread)}>
-                    <img src={(bread.image !== "") && (bread.image !== undefined)? bread.image: DefaultBread} alt={bread.name} height="65px" width="65px" className={`rounded-2 border border-2 border-${theme.color === 'light' ? 'dark' : 'light'}`} />
+                    <img src={(bread.image !== "") && (bread.image !== undefined) ? bread.image : DefaultBread} alt={bread.name} height="65px" width="65px" className={`rounded-2 border border-2 border-${theme.color === 'light' ? 'dark' : 'light'}`} />
                   </td>
                   <td onClick={() => navigateToBread(bread)}>{bread.name}</td>
                   <td onClick={() => navigateToBread(bread)}>₹{bread.amount}</td>
                   <td>
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#removeBread" name="fire-btn" value={bread._id + ',' + bread.name} className="btn btn-danger btn-lg w-100 my-2" onClick={removeBread}>
+                    <button type="button" className="btn btn-danger btn-lg w-100 my-2" data-bs-toggle="modal" data-bs-target="#removeBreadModal" name="fire-btn" value={bread._id + ',' + bread.name} onClick={removeBread}>
                       REMOVE
                     </button>
                   </td>
@@ -114,11 +121,11 @@ function Breads({ theme }) {
             </tbody>
           </table>
 
-          <div className="modal fade" id="removeBreadModal" tabindex="-1" aria-labelledby="removeBreadLabel" aria-hidden="true">
+          <div className="modal fade" id="removeBreadModal" tabindex="-1" aria-labelledby="removeBreadModalLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered">
               <div className={`modal-content bg-${theme.color}`}>
                 <div className="modal-header">
-                  <h5 className="modal-title" id="removeBreadLabel">Remove {remove_Bread.name}</h5>
+                  <h5 className="modal-title" id="removeBreadModalLabel">Remove {remove_Bread.name}</h5>
                   <button type="button" className={`btn-close bg-${theme.color === 'light' ? 'dark' : 'light'}`} data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div className="modal-body">

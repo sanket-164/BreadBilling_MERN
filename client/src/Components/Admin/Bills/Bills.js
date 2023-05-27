@@ -30,7 +30,7 @@ function Bills({ theme }) {
     <div>
       <h2 className='m-3'>Bills</h2>
       {(bills.length !== 0) && (
-        <div>
+        <div className='container'>
           <table className={`table table-${theme.color} table-hover`}>
             <thead>
               <tr>

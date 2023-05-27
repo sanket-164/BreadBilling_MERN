@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import BreadBilling from '../BreadBilling';
 import Home from './Home';
 import Navbar from './Navbar';
 import Profile from './Profile';
@@ -10,7 +11,8 @@ import Bill from './Bills/Bill';
 import Bread from './Breads/Bread';
 import Breads from './Breads/Breads';
 import Temp from './Cashiers/Temp';
-import Settings from './Settings';
+import Settings from '../Settings';
+import Sanket from '../Sanket';
 
 function Admin() {
     const [theme, setTheme] = useState({
@@ -21,7 +23,8 @@ function Admin() {
         <BrowserRouter>
             <Navbar theme={theme}/>
             <Routes>
-                <Route path='/' exact element={<Home theme={theme}/>} />
+                <Route path='/' exact element={<BreadBilling theme={theme}/>} />
+                <Route path='/home' exact element={<Home theme={theme}/>} />
                 <Route path='/profile' exact element={<Profile theme={theme}/>} />
                 <Route path='/cashiers' exact element={<Cashiers theme={theme}/>} />
                 <Route path='/cashier' exact element={<Cashier theme={theme}/>} />
@@ -31,6 +34,7 @@ function Admin() {
                 <Route path='/bread' exact element={<Bread theme={theme}/>} />
                 <Route path='/temp' exact element={<Temp theme={theme}/>} />
                 <Route path='/settings' exact element={<Settings theme={theme} setTheme={setTheme}/>} />
+                <Route path='/sanket' exact element={<Sanket theme={theme} />} />
             </Routes>
         </BrowserRouter>
     )

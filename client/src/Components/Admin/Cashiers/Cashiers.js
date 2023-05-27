@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { fetchCashiers, hireCashier } from "../../../Actions/admin.js"
 import { useLocation } from 'react-router-dom';
+import FileBase from 'react-file-base64';
+import { fetchCashiers, hireCashier } from "../../../Actions/admin.js"
 import { deleteCashier } from '../../../Actions/admin.js';
 import DefaultCashier from '../../../Images/default-profile.png';
 
@@ -39,6 +40,7 @@ function Cashiers({ theme }) {
       phone: "",
       gender: "Male",
       birthday: "",
+      image: "",
       joinedAt: new Date().toLocaleDateString(),
       password: ""
     });
@@ -84,12 +86,19 @@ function Cashiers({ theme }) {
                     phone: "",
                     gender: "Male",
                     birthday: "",
+                    image: "",
                     joinedAt: new Date().toLocaleDateString(),
                     password: ""
                   })}></button>
             </div>
             <form onSubmit={handleSubmit}>
               <div className="modal-body">
+                <div className="mb-3">
+                  <label for="cashier-image" class="form-label">Image</label>
+                  <div id="cashier-image">
+                    <FileBase type="file" multiple={false} onDone={({ base64 }) => setCashier({ ...cashier, image: base64 })}></FileBase>
+                  </div>
+                </div>
                 <div className="mb-3">
                   <label htmlFor="name" className="form-label">Cashier's Name</label>
                   <input type="text" className="form-control" id="name" name="name" value={cashier.name} onChange={handleChange} placeholder="Sanket" required />
@@ -135,7 +144,7 @@ function Cashiers({ theme }) {
       </div>
 
       {(cashiers.length !== 0) && (
-        <div>
+        <div classsName='conatiner'>
           <table className={`table table-${theme.color} table-hover`}>
             <thead>
               <tr>
