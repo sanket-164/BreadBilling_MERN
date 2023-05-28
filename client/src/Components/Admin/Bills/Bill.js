@@ -23,7 +23,7 @@ function Bill({ theme }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(updateBill(bill._id, { bill: bill }));
-    navigate('/bills');
+    navigate('/admin/bills');
   }
 
   return (

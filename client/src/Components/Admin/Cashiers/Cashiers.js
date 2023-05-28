@@ -44,7 +44,7 @@ function Cashiers({ theme }) {
       joinedAt: new Date().toLocaleDateString(),
       password: ""
     });
-    navigate('/cashiers');
+    navigate('/admin/cashiers');
     document.getElementById("modalClose").click();
   }
 
@@ -63,7 +63,7 @@ function Cashiers({ theme }) {
 
   const cashiers = useSelector((data) => data.cashiers);
 
-  const navigateToCashier = (cashier) => { navigate(`/cashier`, { state: { cashier: cashier } }) };
+  const navigateToCashier = (cashier) => { navigate(`/admin/cashier`, { state: { cashier: cashier } }) };
 
   return (
     <div>
@@ -192,7 +192,7 @@ function Cashiers({ theme }) {
                   </div>
                 </div>
                 <div className="modal-footer d-flex justify-content-center">
-                  <button type="button" className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-4`} onClick={() => { dispatch(deleteCashier(fire_Cashier.id)); navigate("/cashiers") }} data-bs-dismiss="modal">YES</button>
+                  <button type="button" className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-4`} onClick={() => { dispatch(deleteCashier(fire_Cashier.id)); navigate("/admin/cashiers") }} data-bs-dismiss="modal">YES</button>
                   <button type="button" className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-4`} data-bs-dismiss="modal">NO</button>
                 </div>
               </div>

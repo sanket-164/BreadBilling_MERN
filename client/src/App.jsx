@@ -1,10 +1,12 @@
 import React from 'react';
 import Admin from './Components/Admin/Admin';
+import Cashier from './Components/Cashier/Cashier';
 
 function App() {
   return (
     <div className="container">
-      <Admin></Admin>
+      {/* <Admin></Admin> */}
+      <Cashier></Cashier>
     </div>
   );
 }

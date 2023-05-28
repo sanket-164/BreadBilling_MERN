@@ -20,7 +20,7 @@ const YourComponent = ({ theme }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(updateBread(bread._id, { bread: bread }));
-    navigate('/breads');
+    navigate('/admin/breads');
   }
 
   return (
@@ -60,7 +60,7 @@ const YourComponent = ({ theme }) => {
               </tr>
             </table>
             <div className="d-flex justify-content-between align-items-end mt-3">
-              <Link to="/breads" className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-4`}>Go Back</Link>
+              <Link to="/admin/breads" className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-4`}>Go Back</Link>
               <button type='submit' className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-4`}>UPDATE</button>
             </div>
           </form>

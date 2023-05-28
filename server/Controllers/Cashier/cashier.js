@@ -1,4 +1,5 @@
 import Cashier from "../../Models/Cashier.js";
+import Bread from '../../Models/Bread.js';
 import Bill from '../../Models/Bill.js';
 
 export const fetchProfile = async (req, res) => {
@@ -39,6 +40,17 @@ export const createBill = async (req, res) => {
         const data = await Bill.create(bill);
 
         res.status(201).json(data);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
+
+export const fetchBreads = async (req, res) => {
+
+    try {
+        const data = await Bread.find();
+
+        res.status(200).json(data);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }

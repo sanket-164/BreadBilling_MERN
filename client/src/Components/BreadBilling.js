@@ -16,7 +16,7 @@ function BreadBilling({ theme }) {
                     </p>
                     <div className="d-flex justify-content-center mt-3">
                         <a className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} mx-2`} rel='noreferrer' href="https://github.com/sanket-164/BreadBilling_MERN" target='_blank'>Get Source Code</a>
-                        <Link to='/home' type='submit' className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-4 mx-2`}>Continue</Link>
+                        <Link to='/admin/home' type='submit' className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-4 mx-2`}>Continue</Link>
                     </div>
                 </div>
             </div>

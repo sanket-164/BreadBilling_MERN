@@ -23,7 +23,7 @@ function Bills({ theme }) {
   const bills = useSelector((data) => data.bills);
 
   const navigateToBill = (bill) => {
-    navigate('/bill', { state: { bill: bill } });
+    navigate('/admin/bill', { state: { bill: bill } });
   }
 
   return (
@@ -71,7 +71,7 @@ function Bills({ theme }) {
                   </div>
                 </div>
                 <div className="modal-footer d-flex justify-content-center">
-                  <button type="button" className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-4`} onClick={() => { dispatch(deleteBill(delete_Bill_Id)); navigate("/bills") }} data-bs-dismiss="modal">YES</button>
+                  <button type="button" className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-4`} onClick={() => { dispatch(deleteBill(delete_Bill_Id)); navigate("/admin/bills") }} data-bs-dismiss="modal">YES</button>
                   <button type="button" className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-4`} data-bs-dismiss="modal">NO</button>
                 </div>
               </div>

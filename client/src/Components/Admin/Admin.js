@@ -10,7 +10,6 @@ import Bills from './Bills/Bills';
 import Bill from './Bills/Bill';
 import Bread from './Breads/Bread';
 import Breads from './Breads/Breads';
-import Temp from './Cashiers/Temp';
 import Settings from '../Settings';
 import Sanket from '../Sanket';
 
@@ -23,18 +22,17 @@ function Admin() {
         <BrowserRouter>
             <Navbar theme={theme}/>
             <Routes>
-                <Route path='/' exact element={<BreadBilling theme={theme}/>} />
-                <Route path='/home' exact element={<Home theme={theme}/>} />
-                <Route path='/profile' exact element={<Profile theme={theme}/>} />
-                <Route path='/cashiers' exact element={<Cashiers theme={theme}/>} />
-                <Route path='/cashier' exact element={<Cashier theme={theme}/>} />
-                <Route path='/bills' exact element={<Bills theme={theme}/>} />
-                <Route path='/bill' exact element={<Bill theme={theme}/>} />
-                <Route path='/breads' exact element={<Breads theme={theme}/>} />
-                <Route path='/bread' exact element={<Bread theme={theme}/>} />
-                <Route path='/temp' exact element={<Temp theme={theme}/>} />
-                <Route path='/settings' exact element={<Settings theme={theme} setTheme={setTheme}/>} />
-                <Route path='/sanket' exact element={<Sanket theme={theme} />} />
+                <Route path='/admin' exact element={<BreadBilling theme={theme}/>} />
+                <Route path='/admin/home' exact element={<Home theme={theme}/>} />
+                <Route path='/admin/profile' exact element={<Profile theme={theme}/>} />
+                <Route path='/admin/cashiers' exact element={<Cashiers theme={theme}/>} />
+                <Route path='/admin/cashier' exact element={<Cashier theme={theme}/>} />
+                <Route path='/admin/bills' exact element={<Bills theme={theme}/>} />
+                <Route path='/admin/bill' exact element={<Bill theme={theme}/>} />
+                <Route path='/admin/breads' exact element={<Breads theme={theme}/>} />
+                <Route path='/admin/bread' exact element={<Bread theme={theme}/>} />
+                <Route path='/admin/settings' exact element={<Settings theme={theme} setTheme={setTheme}/>} />
+                <Route path='/admin/sanket' exact element={<Sanket theme={theme} />} />
             </Routes>
         </BrowserRouter>
     )

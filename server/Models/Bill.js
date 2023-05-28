@@ -9,7 +9,7 @@ const billSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    cashier_name: {
+    cashier_id: {
         type: String,
         required: true,
     },
@@ -17,7 +17,7 @@ const billSchema = new mongoose.Schema({
         type: Object,
         required: true,
     },
-    amount: {
+    total_amount: {
         type: Number,
         required: true,
     },
