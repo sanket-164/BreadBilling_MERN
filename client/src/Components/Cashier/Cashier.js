@@ -4,6 +4,7 @@ import BreadBilling from '../BreadBilling';
 import Navbar from './Navbar';
 import Home from './Home';
 import Profile from './Profile';
+import Bread from './Bread';
 import Bill from './Bill';
 import Bills from './Bills';
 import Settings from '../Settings';
@@ -22,6 +23,7 @@ function Cashier() {
                     <Route path='/cashier' exact element={<BreadBilling theme={theme} />} />
                     <Route path='/cashier/home' exact element={<Home theme={theme} />} />
                     <Route path='/cashier/profile' exact element={<Profile theme={theme} />} />
+                    <Route path='/cashier/bread' exact element={<Bread theme={theme} />} />
                     <Route path='/cashier/bill' exact element={<Bill theme={theme} />} />
                     <Route path='/cashier/bills' exact element={<Bills theme={theme} />} />
                     <Route path='/cashier/settings' exact element={<Settings theme={theme} setTheme={setTheme} />} />
