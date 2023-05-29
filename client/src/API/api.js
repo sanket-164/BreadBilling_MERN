@@ -5,7 +5,7 @@ const adminAPI = axios.create({
 });
 
 const cashierAPI = axios.create({
-    baseURL: "http://localhost:4444/admin"
+    baseURL: "http://localhost:4444/cashier"
 });
 
 export const fetchProfile = () => adminAPI.get('/profile');
@@ -30,3 +30,4 @@ export const deleteBread = (id) => adminAPI.delete(`delete/bread/${id}`);
 
 
 export const fetchBreadsCashier = () => cashierAPI.get(`/breads`);
+export const createBillCashier = (bill) => cashierAPI.post(`/create/bill`, bill);

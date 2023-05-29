@@ -38,7 +38,7 @@ const YourComponent = ({ theme }) => {
             <table className="card-title w-100" cellPadding={4}>
               <tr>
                 <td>
-                  <label for="cashier-image" class="form-label">Image</label>
+                  <label htmlFor="cashier-image" className="form-label">Image</label>
                   <div id="cashier-image">
                     <FileBase type="file" multiple={false} onDone={({ base64 }) => setCashier({ ...cashier, image: base64 })}></FileBase>
                   </div>
@@ -46,23 +46,23 @@ const YourComponent = ({ theme }) => {
               </tr>
               <tr>
                 <td>
-                  <label for="cashier-name" class="form-label">Name</label>
+                  <label htmlFor="cashier-name" className="form-label">Name</label>
                   <input className="form-control" type="text" name="name" id="cashier-name" value={cashier.name} onChange={handleChange}></input>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <label for="cashier-email" class="form-label">Email</label>
+                  <label htmlFor="cashier-email" className="form-label">Email</label>
                   <input className="form-control" type="text" name="email" id="cashier-amount" value={cashier.email} onChange={handleChange}></input></td>
               </tr>
               <tr>
                 <td>
-                  <label for="cashier-phone" class="form-label">Mobile No</label>
+                  <label htmlFor="cashier-phone" className="form-label">Mobile No</label>
                   <input className="form-control" type="text" name="phone" id="cashier-phone" value={cashier.phone} onChange={handleChange}></input></td>
               </tr>
               <tr>
                 <td>
-                  <label for="cashier-gender" class="form-label m-1">Gender</label>
+                  <label htmlFor="cashier-gender" className="form-label m-1">Gender</label>
                   <div className="m-1" id='cashier-gender'>
                     <div className="form-check form-check-inline">
                       {(cashier.gender === 'Male') &&
@@ -96,7 +96,7 @@ const YourComponent = ({ theme }) => {
               </tr>
               <tr>
                 <td>
-                  <label for="cashier-birthday" class="form-label">Birthday</label>
+                  <label htmlFor="cashier-birthday" className="form-label">Birthday</label>
                   <input className="form-control" type="date" name="email" id="cashier-birthday" value={cashier_birthday} onChange={handleChange}></input></td>
               </tr>
             </table>

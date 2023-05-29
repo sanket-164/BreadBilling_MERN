@@ -9,12 +9,11 @@ function Home({ theme }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const breads = useSelector((data) => data.cashier);
-  const [totalAmount, setTotalAmount] = useState(0);
   const [bill, setBill] = useState({
     customer_name: "",
     customer_email: "",
-    breads: [],
-    purchasedAt: ""
+    breads: {},
+    purchasedAt: new Date()
   })
 
   const handleChange = (e) => {
@@ -26,6 +25,7 @@ function Home({ theme }) {
   const handleQuantityBtn = (e) => {
     e.preventDefault();
     const bread = e.target.name.split(',');
+
     if (bread[1] === 'plus') {
       if (isNaN(parseInt(document.getElementById(`${bread[0]}-quantity`).value))) {
         document.getElementById(`${bread[0]}-quantity`).value = 0;
@@ -39,33 +39,15 @@ function Home({ theme }) {
 
     document.getElementById(`${bread[0]}-total`).value = parseInt(document.getElementById(`${bread[0]}-quantity`).value) * parseInt(bread[2]);
 
-    let flag = true;
-
-    for (let i = 0; i < bill.breads.length; i++) {
-      if (bill.breads[i] === bread[0]) {
-        setBill({
-          ...bill, breads: [...bill.breads, {
-            [bill.breads[i]]: {
-              quantity: parseInt(document.getElementById(`${bread[0]}-quantity`).value) + 1,
-              amount: parseInt(bread[2])
-            }
-          }]
-        })
-        flag = false;
-        break;
-      }
-    }
-
-    if (flag) {
-      setBill({
-        ...bill, breads: [...bill.breads, {
-          [bread[0]]: {
-            quantity: parseInt(document.getElementById(`${bread[0]}-quantity`).value) + 1,
-            amount: parseInt(bread[2])
-          }
-        }]
-      })
-    }
+    setBill({
+      ...bill, breads: {
+        ...bill.breads,
+        [bread[0]]: {
+          quantity: parseInt(document.getElementById(`${bread[0]}-quantity`).value),
+          amount: parseInt(bread[2])
+        }
+      },
+    })
   }
 
   const handleQuantityText = (e) => {
@@ -78,20 +60,18 @@ function Home({ theme }) {
 
         document.getElementById(`${bread[0]}-total`).value = e.target.value * parseInt(bread[2]);
 
-        setTotalAmount(totalAmount + parseInt(e.target.value));
-        console.log(bread[2]);
-
         setBill({
-          ...bill, breads: [...bill.breads, {
+          ...bill, breads: {
+            ...bill.breads,
             [bread[0]]: {
-              quantity: e.target.value,
+              quantity: parseInt(e.target.value),
               amount: parseInt(bread[2])
             }
-          }],
-          total_amount: totalAmount
+          }
         })
 
-        console.log(bill);
+        console.log(bill.breads)
+
       } else if (e.target.value === "0") {
         e.target.value = "";
       } else {
@@ -101,10 +81,8 @@ function Home({ theme }) {
   }
 
   const handleSubmit = () => {
-    setBill({
-      ...bill, purchasedAt: new Date().toLocaleString()
-    })
-    navigate('/cashier/bill', { state: { bill: bill } });
+    console.log(bill);
+    navigate('/cashier/billreceipt', { state: { bill: bill } });
   }
 
   useEffect(() => {

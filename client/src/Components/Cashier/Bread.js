@@ -16,13 +16,13 @@ const Bread = ({ theme }) => {
           <table className="card-title w-100 mt-3" cellPadding={3}>
             <tr>
               <td>
-                <label for="bread-name" class="form-label">Name</label>
+                <label htmlFor="bread-name" className="form-label">Name</label>
                 <input className="form-control" type="text" name="name" id="bread-name" value={bread.name} disabled></input>
               </td>
             </tr>
             <tr>
               <td>
-                <label for="bread-amount" class="form-label">Amount</label>
+                <label htmlFor="bread-amount" className="form-label">Amount</label>
                 <input className="form-control" type="number" name="amount" id="bread-amount" value={bread.amount} disabled></input></td>
             </tr>
             <tr align="center">

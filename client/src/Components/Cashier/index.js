@@ -5,8 +5,9 @@ import Navbar from './Navbar';
 import Home from './Home';
 import Profile from './Profile';
 import Bread from './Bread';
-import Bill from './Bill';
+import CreateBill from './CreateBill';
 import Bills from './Bills';
+import BillReceipt from '../BillReceipt';
 import Settings from '../Settings';
 import Sanket from '../Sanket';
 
@@ -24,7 +25,8 @@ function Cashier() {
                     <Route path='/cashier/home' exact element={<Home theme={theme} />} />
                     <Route path='/cashier/profile' exact element={<Profile theme={theme} />} />
                     <Route path='/cashier/bread' exact element={<Bread theme={theme} />} />
-                    <Route path='/cashier/bill' exact element={<Bill theme={theme} />} />
+                    <Route path='/cashier/createbill' exact element={<CreateBill theme={theme} />} />
+                    <Route path='/cashier/billreceipt' exact element={<BillReceipt theme={theme} />} />
                     <Route path='/cashier/bills' exact element={<Bills theme={theme} />} />
                     <Route path='/cashier/settings' exact element={<Settings theme={theme} setTheme={setTheme} />} />
                     <Route path='/cashier/sanket' exact element={<Sanket theme={theme} />} />

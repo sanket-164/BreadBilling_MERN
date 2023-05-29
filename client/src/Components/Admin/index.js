@@ -7,7 +7,7 @@ import Profile from './Profile';
 import Cashier from './Cashiers/Cashier';
 import Cashiers from './Cashiers/Cashiers';
 import Bills from './Bills/Bills';
-import Bill from './Bills/Bill';
+import BillReceipt from '../BillReceipt';
 import Bread from './Breads/Bread';
 import Breads from './Breads/Breads';
 import Settings from '../Settings';
@@ -28,7 +28,7 @@ function Admin() {
                 <Route path='/admin/cashiers' exact element={<Cashiers theme={theme}/>} />
                 <Route path='/admin/cashier' exact element={<Cashier theme={theme}/>} />
                 <Route path='/admin/bills' exact element={<Bills theme={theme}/>} />
-                <Route path='/admin/bill' exact element={<Bill theme={theme}/>} />
+                <Route path='/admin/billreceipt' exact element={<BillReceipt theme={theme}/>} />
                 <Route path='/admin/breads' exact element={<Breads theme={theme}/>} />
                 <Route path='/admin/bread' exact element={<Bread theme={theme}/>} />
                 <Route path='/admin/settings' exact element={<Settings theme={theme} setTheme={setTheme}/>} />

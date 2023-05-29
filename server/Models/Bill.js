@@ -15,16 +15,15 @@ const billSchema = new mongoose.Schema({
     },
     breads: {
         type: Object,
-        required: true,
+        required: true
     },
-    total_amount: {
+    totalAmount:{
         type: Number,
-        required: true,
+        required: true
     },
-    purchasedAt: {
+    purchasedAt:{
         type: Date,
-        required: true,
-        default: Date.now(),
+        required: true
     }
 })
 

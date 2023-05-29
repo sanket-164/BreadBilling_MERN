@@ -29,3 +29,14 @@ export const fetchBreads = () => async (dispatch) => {
         console.log(err.message);
     }
 }
+
+export const createBillCashier = (bill) => async(dispatch) => {
+    console.log(bill);
+    try {
+        const { data } = await api.createBillCashier(bill);
+        
+        dispatch({ type: "CREATE_BILL_CASHIER", payload: data });
+    } catch (err) {
+        console.log(err.message);
+    }
+}

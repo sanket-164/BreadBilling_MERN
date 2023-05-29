@@ -4,6 +4,8 @@ export const cashier = (data = [], action) => {
             return action.payload;
         case "UPDATE_PROFILE_CASHIER":
             return action.payload;
+        case "CREATE_BILL_CASHIER":
+            return true;
         case "FETCH_BREADS_CASHIER":
             return action.payload;
         case "FETCH_BILLS_CASHIER":

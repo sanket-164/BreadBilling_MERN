@@ -62,7 +62,7 @@ function Breads({ theme }) {
               <form onSubmit={handleSubmit}>
                 <div className="modal-body">
                   <div className="mb-3">
-                    <label for="bread-image" class="form-label">Image</label>
+                    <label htmlFor="bread-image" className="form-label">Image</label>
                     <div id="bread-image">
                       <FileBase type="file" multiple={false} onDone={({ base64 }) => setBread({ ...bread, image: base64 })}></FileBase>
                     </div>

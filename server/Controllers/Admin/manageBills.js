@@ -26,6 +26,18 @@ export const fetchBills = async (req, res) => {
     }
 }
 
+export const fetchBillsOfCashier = async (req, res) => {
+    const { id } = req.params;
+    
+    try {
+        const data = await Bill.find({ cashier_id: id });
+        
+        res.status(200).json(data);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
+
 export const updateBill = async (req, res) => {
     const { id } = req.params;
     const { bill } = req.body;

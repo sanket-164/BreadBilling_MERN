@@ -35,7 +35,7 @@ const YourComponent = ({ theme }) => {
             <table className="card-title w-100" cellPadding={3}>
               <tr>
                 <td>
-                  <label for="bread-image" class="form-label">Image</label>
+                  <label htmlFor="bread-image" className="form-label">Image</label>
                   <div id="bread-image">
                     <FileBase type="file" multiple={false} onDone={({ base64 }) => setBread({ ...bread, image: base64 })}></FileBase>
                   </div>
@@ -43,13 +43,13 @@ const YourComponent = ({ theme }) => {
               </tr>
               <tr>
                 <td>
-                  <label for="bread-name" class="form-label">Name</label>
+                  <label htmlFor="bread-name" className="form-label">Name</label>
                   <input className="form-control" type="text" name="name" id="bread-name" value={bread.name} onChange={handleChange}></input>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <label for="bread-amount" class="form-label">Amount</label>
+                  <label htmlFor="bread-amount" className="form-label">Amount</label>
                   <input className="form-control" type="number" name="amount" id="bread-amount" value={bread.amount} onChange={handleChange}></input></td>
               </tr>
               <tr align="center">

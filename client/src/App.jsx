@@ -1,12 +1,14 @@
 import React from 'react';
-import Admin from './Components/Admin/Admin';
-import Cashier from './Components/Cashier/Cashier';
+import Authentication from './Components/Authentication'
+import Admin from './Components/Admin';
+import Cashier from './Components/Cashier';
 
 function App() {
   return (
     <div className="container">
+      <Authentication />
       {/* <Admin></Admin> */}
-      <Cashier></Cashier>
+      {/* <Cashier></Cashier> */}
     </div>
   );
 }

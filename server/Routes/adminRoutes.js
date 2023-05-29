@@ -1,14 +1,13 @@
 import express from "express";
-import { fetchProfile, updateProfile } from "../Controllers/Admin/forAdmin.js";
-import { hireCashier, updateCashier, fetchCashier, fetchCashiers, deleteCashier } from "../Controllers/Admin/forCashiers.js";
-import { addBread, deleteBread, updateBread, fetchBread, fetchBreads } from "../Controllers/Admin/forBreads.js";
-import { fetchBills, fetchBill, deleteBill, updateBill } from "../Controllers/Admin/forBills.js";
+import { fetchProfile, updateProfile } from "../Controllers/Admin/manageProfile.js";
+import { hireCashier, updateCashier, fetchCashier, fetchCashiers, deleteCashier } from "../Controllers/Admin/manageCashiers.js";
+import { addBread, deleteBread, updateBread, fetchBread, fetchBreads } from "../Controllers/Admin/manageBreads.js";
+import { fetchBills, fetchBill, deleteBill, updateBill } from "../Controllers/Admin/manageBills.js";
 
 const router = express.Router();
 
 router.get('/profile', fetchProfile);
 router.patch('/update', updateProfile);
-
 
 router.get('/cashier/:id', fetchCashier);
 router.get('/cashiers', fetchCashiers);

@@ -1,5 +1,7 @@
 import express from "express";
-import { createBill, fetchProfile, updateProfile, fetchBreads } from "../Controllers/Cashier/cashier.js";
+import { createBill, fetchBreads } from "../Controllers/Cashier/cashier.js";
+import { fetchProfile, updateProfile } from "../Controllers/Cashier/manageProfile.js";
+
 const router = express.Router();
 
 router.get('/profile', fetchProfile);

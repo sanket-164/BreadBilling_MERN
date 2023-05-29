@@ -94,7 +94,7 @@ function Cashiers({ theme }) {
             <form onSubmit={handleSubmit}>
               <div className="modal-body">
                 <div className="mb-3">
-                  <label for="cashier-image" class="form-label">Image</label>
+                  <label htmlFor="cashier-image" className="form-label">Image</label>
                   <div id="cashier-image">
                     <FileBase type="file" multiple={false} onDone={({ base64 }) => setCashier({ ...cashier, image: base64 })}></FileBase>
                   </div>
@@ -153,22 +153,26 @@ function Cashiers({ theme }) {
                 <th scope="col">Name</th>
                 <th scope="col">Gender</th>
                 <th scope="col">Birthday</th>
-                <th scope="col">Joined At</th>
+                <th scope="col">Bills</th>
                 <th scope="col">FIRE</th>
               </tr>
             </thead>
             <tbody>
 
               {cashiers.map((cashier, i) => {
-                return (<tr role="button">
-                  <th scope="row">{i + 1}</th>
-                  <td onClick={() => navigateToCashier(cashier)}>
+                return (<tr>
+                  <th role="button" scope="row">{i + 1}</th>
+                  <td role="button" onClick={() => navigateToCashier(cashier)}>
                     <img src={(cashier.image !== "") && (cashier.image !== undefined) ? cashier.image : DefaultCashier} alt={cashier.name} height="65px" width="65px" className={`rounded-2 border border-2 border-${theme.color === 'light' ? 'dark' : 'light'}`} />
                   </td>
-                  <td onClick={() => navigateToCashier(cashier)}>{cashier.name}</td>
-                  <td onClick={() => navigateToCashier(cashier)}>{cashier.gender}</td>
-                  <td onClick={() => navigateToCashier(cashier)}>{new Date(cashier.birthday).toLocaleDateString()}</td>
-                  <td onClick={() => navigateToCashier(cashier)}>{new Date(cashier.joinedAt).toLocaleDateString()}</td>
+                  <td role="button" onClick={() => navigateToCashier(cashier)}>{cashier.name}</td>
+                  <td role="button" onClick={() => navigateToCashier(cashier)}>{cashier.gender}</td>
+                  <td role="button" onClick={() => navigateToCashier(cashier)}>{new Date(cashier.birthday).toLocaleDateString()}</td>
+                  <td>
+                    <button type="button" className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} w-100 my-2 btn-lg`}onClick={fireCashier}>
+                      VIEW BILLS
+                    </button>
+                  </td>
                   <td>
                     <button type="button" data-bs-toggle="modal" data-bs-target="#fireCashierModal" name="fire-btn" value={cashier._id + ',' + cashier.name} className="btn btn-danger w-100 my-2 btn-lg" onClick={fireCashier}>
                       FIRE

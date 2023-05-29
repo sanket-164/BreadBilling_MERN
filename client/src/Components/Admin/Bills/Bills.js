@@ -23,7 +23,7 @@ function Bills({ theme }) {
   const bills = useSelector((data) => data.bills);
 
   const navigateToBill = (bill) => {
-    navigate('/admin/bill', { state: { bill: bill } });
+    navigate('/admin/billreceipt', { state: { bill: bill, URL: '/admin/bills' } });
   }
 
   return (
@@ -36,7 +36,7 @@ function Bills({ theme }) {
               <tr>
                 <th scope="col">No.</th>
                 <th scope="col">Customer Name</th>
-                <th scope="col">Cashier Name</th>
+                {/* <th scope="col">Cashier Name</th> */}
                 <th scope="col">Amount</th>
                 <th scope="col">Purchased At</th>
                 <th scope="col">Delete</th>
@@ -48,8 +48,8 @@ function Bills({ theme }) {
                 return (<tr role="button">
                   <th scope="row" onClick={() => navigateToBill(bill)}>{i + 1}</th>
                   <td onClick={() => navigateToBill(bill)}>{bill.customer_name}</td>
-                  <td onClick={() => navigateToBill(bill)}>{bill.cashier_name}</td>
-                  <td onClick={() => navigateToBill(bill)}>{bill.amount}</td>
+                  {/* <td onClick={() => navigateToBill(bill)}>{bill.cashier_name}</td> */}
+                  <td onClick={() => navigateToBill(bill)}>₹{bill.totalAmount}</td>
                   <td onClick={() => navigateToBill(bill)}>{new Date(bill.purchasedAt).toLocaleString()}</td>
                   <td>
                     <button className="btn btn-danger w-100" name="delete-btn" value={bill._id} onClick={getBillId} data-bs-target="#deleteBillModal" data-bs-toggle="modal">DELETE</button></td>

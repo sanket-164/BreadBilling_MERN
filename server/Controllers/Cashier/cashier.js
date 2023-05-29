@@ -1,46 +1,15 @@
-import Cashier from "../../Models/Cashier.js";
 import Bread from '../../Models/Bread.js';
 import Bill from '../../Models/Bill.js';
 
-export const fetchProfile = async (req, res) => {
-
-    try {
-        const data = await Cashier.find();
-        
-        if(data.length > 0) {
-            res.status(200).json(data);
-        } else {
-            res.status(400).json({ message: "Cashier does not exist"});
-        }
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-}
-
-export const updateProfile = async (req, res) => {
-    const { id } = req.params;
-    const { cashier } = req.body;
-    try {
-        const data = await Cashier.findByIdAndUpdate( id, cashier );
-
-        if(data != null) {
-            res.status(200).json(cashier);
-        } else {
-            res.status(400).json({ message: "Cashier does not exist"});
-        }
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-}
-
 export const createBill = async (req, res) => {
     const { bill } = req.body;
-
+    console.log(bill.breads);
     try {
-        const data = await Bill.create(bill);
+        const data = await Bill.create({ ...bill, cashier_id: "6470689447f5caa5de9c8e3e" });
 
         res.status(201).json(data);
     } catch (error) {
+        console.log(error.message);
         res.status(500).json({ message: error.message });
     }
 }
@@ -49,6 +18,17 @@ export const fetchBreads = async (req, res) => {
 
     try {
         const data = await Bread.find();
+
+        res.status(200).json(data);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
+
+export const fetchBills = async (req, res) => {
+
+    try {
+        const data = await Bill.find();
 
         res.status(200).json(data);
     } catch (error) {
