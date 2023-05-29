@@ -67,7 +67,7 @@ function ForgotPwd() {
                         <input type="number" class="form-control" id="pin" name="pin" onChange={checkPin} placeholder={`Verification Pin`} required disabled/>
                     </div>
                     <div className='d-flex justify-content-center m-2'>
-                        <Link to="/authentication/login" className='btn btn-primary px-4'>login</Link>
+                        <Link to="/" className='btn btn-primary px-4'>login</Link>
                     </div>
                 </div>
             </div>

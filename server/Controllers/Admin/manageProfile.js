@@ -7,6 +7,7 @@ export const fetchProfile = async (req, res) => {
 
         res.status(200).json(data[0]);
     } catch (error) {
+       console.log(error.message);
         res.status(500).json({ message: error.message });
     }
 }
@@ -23,6 +24,7 @@ export const updateProfile = async (req, res) => {
             res.status(400).json({ message: "Admin does not exist"});
         }
     } catch (error) {
+       console.log(error.message);
         res.status(500).json({ message: error.message });
     }
 }

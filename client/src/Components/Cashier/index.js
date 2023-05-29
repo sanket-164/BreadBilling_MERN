@@ -12,24 +12,24 @@ import Settings from '../Settings';
 import Sanket from '../Sanket';
 
 function Cashier() {
-    const [theme, setTheme] = useState({
-        text: "light",
-        color: "dark"
-    });
+    const [theme, setTheme] = useState(JSON.parse(localStorage.getItem('breadBillingTheme')));
+    document.body.style.color = theme.text;
+    document.body.style.backgroundColor = theme.background;
+    
     return (
         <div className='container'>
             <BrowserRouter>
                 <Navbar theme={theme} />
                 <Routes>
-                    <Route path='/cashier' exact element={<BreadBilling theme={theme} />} />
-                    <Route path='/cashier/home' exact element={<Home theme={theme} />} />
-                    <Route path='/cashier/profile' exact element={<Profile theme={theme} />} />
-                    <Route path='/cashier/bread' exact element={<Bread theme={theme} />} />
-                    <Route path='/cashier/createbill' exact element={<CreateBill theme={theme} />} />
-                    <Route path='/cashier/billreceipt' exact element={<BillReceipt theme={theme} />} />
-                    <Route path='/cashier/bills' exact element={<Bills theme={theme} />} />
-                    <Route path='/cashier/settings' exact element={<Settings theme={theme} setTheme={setTheme} />} />
-                    <Route path='/cashier/sanket' exact element={<Sanket theme={theme} />} />
+                    <Route path='/' exact element={<BreadBilling theme={theme} />} />
+                    <Route path='/home' exact element={<Home theme={theme} />} />
+                    <Route path='/profile' exact element={<Profile theme={theme} />} />
+                    <Route path='/bread' exact element={<Bread theme={theme} />} />
+                    <Route path='/createbill' exact element={<CreateBill theme={theme} />} />
+                    <Route path='/billreceipt' exact element={<BillReceipt theme={theme} />} />
+                    <Route path='/bills' exact element={<Bills theme={theme} />} />
+                    <Route path='/settings' exact element={<Settings theme={theme} setTheme={setTheme} />} />
+                    <Route path='/sanket' exact element={<Sanket theme={theme} />} />
                 </Routes>
             </BrowserRouter>
 

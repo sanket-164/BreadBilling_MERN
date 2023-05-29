@@ -21,7 +21,7 @@ const YourComponent = ({ theme }) => {
     console.log(cashier)
     e.preventDefault();
     dispatch(updateCashier(cashier._id, { cashier: cashier }));
-    navigate('/admin/cashiers');
+    navigate('/cashiers');
   }
 
   const birthDate = new Date(cashier.birthday);

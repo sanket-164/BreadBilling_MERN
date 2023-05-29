@@ -24,7 +24,7 @@ function ChangePwd() {
             const { data } = await changePwd(email, user.password, role);
             console.log(email, role, data);
             if (data.success === true) {
-                navigate('/authentication/login');
+                navigate('/');
             } else {
 
             }

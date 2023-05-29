@@ -21,7 +21,7 @@ function Breads({ theme }) {
     e.preventDefault();
     dispatch(addBread({ bread: bread }));
     setBread({ name: "", amount: "", description: "", image: ""});
-    navigate('/admin/breads');
+    navigate('/breads');
   }
 
   const handleChange = (e) => {
@@ -43,7 +43,7 @@ function Breads({ theme }) {
 
   const breads = useSelector((data) => data.breads);
 
-  const navigateToBread = (bread) => { navigate(`/admin/bread`, { state: { bread: bread } }) };
+  const navigateToBread = (bread) => { navigate(`/bread`, { state: { bread: bread } }) };
 
   return (
     <div>
@@ -134,7 +134,7 @@ function Breads({ theme }) {
                   </div>
                 </div>
                 <div className="modal-footer d-flex justify-content-center">
-                  <button type="button" className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-4`} onClick={() => { dispatch(deleteBread(remove_Bread.id)); navigate("/admin/breads") }} data-bs-dismiss="modal">YES</button>
+                  <button type="button" className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-4`} onClick={() => { dispatch(deleteBread(remove_Bread.id)); navigate("/breads") }} data-bs-dismiss="modal">YES</button>
                   <button type="button" className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-4`} data-bs-dismiss="modal">NO</button>
                 </div>
               </div>

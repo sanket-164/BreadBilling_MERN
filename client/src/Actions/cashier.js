@@ -1,4 +1,4 @@
-import * as api from "../API/api.js";
+import * as api from "../API/cashier.js";
 
 export const fetchProfile = () => async (dispatch) => {
     try {
@@ -30,10 +30,10 @@ export const fetchBreads = () => async (dispatch) => {
     }
 }
 
-export const createBillCashier = (bill) => async(dispatch) => {
+export const createBill = (bill) => async(dispatch) => {
     console.log(bill);
     try {
-        const { data } = await api.createBillCashier(bill);
+        const { data } = await api.createBill(bill);
         
         dispatch({ type: "CREATE_BILL_CASHIER", payload: data });
     } catch (err) {

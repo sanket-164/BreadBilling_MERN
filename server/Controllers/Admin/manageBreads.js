@@ -12,6 +12,7 @@ export const fetchBread = async (req, res) => {
             res.status(400).json({ message: "Bread is not availabel"});
         }
     } catch (error) {
+       console.log(error.message);
         res.status(500).json({ message: error.message });
     }
 }
@@ -23,6 +24,7 @@ export const fetchBreads = async (req, res) => {
 
         res.status(200).json(breads);
     } catch (error) {
+       console.log(error.message);
         res.status(500).json({ message: error.message });
     }
 }
@@ -35,6 +37,7 @@ export const addBread = async (req, res) => {
         
         res.status(201).json(data);
     } catch (error) {
+       console.log(error.message);
         res.status(500).json({ message: error.message });
     }
 }
@@ -54,6 +57,7 @@ export const updateBread = async (req, res) => {
             res.status(400).json({ message: "Bread is not availabel"});
         }
     } catch (error) {
+       console.log(error.message);
         res.status(500).json({ message: error.message });
     }
 }
@@ -72,6 +76,7 @@ export const deleteBread = async (req, res) => {
         }
 
     } catch (error) {
+       console.log(error.message);
         res.status(500).json({ message: error.message });
     }
 }

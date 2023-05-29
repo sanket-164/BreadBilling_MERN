@@ -12,6 +12,7 @@ export const fetchBill = async (req, res) => {
             res.status(400).json({ message: "Bill does not exist" });
         }
     } catch (error) {
+       console.log(error.message);
         res.status(500).json({ message: error.message });
     }
 }
@@ -22,6 +23,7 @@ export const fetchBills = async (req, res) => {
         
         res.status(200).json(data);
     } catch (error) {
+       console.log(error.message);
         res.status(500).json({ message: error.message });
     }
 }
@@ -34,6 +36,7 @@ export const fetchBillsOfCashier = async (req, res) => {
         
         res.status(200).json(data);
     } catch (error) {
+       console.log(error.message);
         res.status(500).json({ message: error.message });
     }
 }
@@ -50,6 +53,7 @@ export const updateBill = async (req, res) => {
             res.status(400).json({ message: "Bill does not exist" });
         }
     } catch (error) {
+       console.log(error.message);
         res.status(500).json({ message: error.message });
     }
 }
@@ -67,6 +71,7 @@ export const deleteBill = async (req, res) => {
         }
 
     } catch (error) {
+       console.log(error.message);
         res.status(500).json({ message: error.message });
     }
 }

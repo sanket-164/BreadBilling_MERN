@@ -9,7 +9,7 @@ function Authentication() {
         <div className='container'>
             <BrowserRouter>
                 <Routes>
-                    <Route path='/authentication/login' exact element={<Login />} />
+                    <Route path='/' exact element={<Login />} />
                     <Route path='/authentication/forgotpwd' exact element={<ForgotPwd />} />
                     <Route path='/authentication/changepwd' exact element={<ChangePwd />} />
                 </Routes>

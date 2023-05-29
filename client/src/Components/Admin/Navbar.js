@@ -7,37 +7,55 @@ function Navbar({ theme }) {
     return (
         <nav className={`navbar navbar-expand-lg navbar-${theme.color === 'light' ? 'light' : 'dark'} bg-${theme.color}`}>
             <div className="container-fluid bg-opacity-50">
-                <Link className="navbar-brand" to="/admin">🍞BreadBilling</Link>
+                <Link className="navbar-brand" to="/">🍞BreadBilling</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" to="/admin/home">Home</Link>
+                            <Link className="nav-link active" aria-current="page" to="/home">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/admin/profile">Profile</Link>
+                            <Link className="nav-link" to="/profile">Profile</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/admin/cashiers">Cashiers</Link>
+                            <Link className="nav-link" to="/cashiers">Cashiers</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/admin/bills">Bills</Link>
+                            <Link className="nav-link" to="/bills">Bills</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/admin/breads">Breads</Link>
+                            <Link className="nav-link" to="/breads">Breads</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/admin/settings">Settings</Link>
+                            <Link className="nav-link" to="/settings">Settings</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/admin/settings">Logout</Link>
+                            <button type="button" className="nav-link btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Logout
+                            </button>
                         </li>
                     </ul>
-                    <Link className="nav-link" to="/admin/sanket" style={{ fontSize: '18px' }}>
+                    <Link className="nav-link" to="/sanket" style={{ fontSize: '18px' }}>
                         <img className="rounded-2" src={Sanket} alt="sanket" height={30} width={30}></img>
                     </Link>
+                </div>
+            </div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div className={`modal-content bg-${theme.color}`}>
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to logout?</h5>
+                            <button type="button" className={`btn-close bg-${theme.color === 'light' ? 'dark' : 'light'}`} data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body d-flex justify-content-center">
+                            <a className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} mx-2 px-4`} href="/" onClick={() => {
+                                localStorage.removeItem('breadBilling');
+                            }}>YES</a>
+                            <button type="button" className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} mx-2 px-4`}  data-bs-dismiss="modal">NO</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>

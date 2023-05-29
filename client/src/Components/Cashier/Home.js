@@ -82,7 +82,7 @@ function Home({ theme }) {
 
   const handleSubmit = () => {
     console.log(bill);
-    navigate('/cashier/billreceipt', { state: { bill: bill } });
+    navigate('/createbill', { state: { bill: bill } });
   }
 
   useEffect(() => {
@@ -126,7 +126,7 @@ function Home({ theme }) {
                         <input type='number' className='form-control' id={`${bread.name}-total`} disabled></input>
                       </td>
                       <td>
-                        <button className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-3`} onClick={() => navigate('/cashier/bread', { state: { bread: bread } })}>VIEW</button>
+                        <button className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-3`} onClick={() => navigate('/bread', { state: { bread: bread } })}>VIEW</button>
                       </td>
                     </tr>)
                   })}

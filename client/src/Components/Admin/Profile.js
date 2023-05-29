@@ -18,7 +18,7 @@ function Profile({ theme }) {
   }
 
   if (admin === {}) {
-    navigate('/admin/profile')
+    navigate('/profile')
   }
 
   useEffect(() => {
@@ -28,7 +28,7 @@ function Profile({ theme }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(updateProfile({ admin: admin }));
-    navigate('/admin/profile')
+    navigate('/profile')
   }
 
   const birthDate = new Date(admin.birthday);

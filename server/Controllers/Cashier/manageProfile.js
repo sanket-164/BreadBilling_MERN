@@ -11,6 +11,7 @@ export const fetchProfile = async (req, res) => {
             res.status(400).json({ message: "Cashier does not exist" });
         }
     } catch (error) {
+       console.log(error.message);
         res.status(500).json({ message: error.message });
     }
 }
@@ -27,6 +28,7 @@ export const updateProfile = async (req, res) => {
             res.status(400).json({ message: "Cashier does not exist" });
         }
     } catch (error) {
+       console.log(error.message);
         res.status(500).json({ message: error.message });
     }
 }

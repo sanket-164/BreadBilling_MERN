@@ -2,13 +2,13 @@ import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import html2Pdf from 'html2pdf.js';
-import { createBillCashier } from '../../Actions/cashier';
+import { createBill } from '../../Actions/cashier.js';
 function CreateBill() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const location = useLocation();
     const bill = location.state.bill;
-    
+
     let breadsArr = Object.entries(bill.breads).filter((bread) => {
         return bread[1].quantity > 0;
     });
@@ -24,8 +24,8 @@ function CreateBill() {
         totalAmount = totalAmount + (breadsArr[i][1].quantity * breadsArr[i][1].amount)
     }
 
-    function createBill() {
-        dispatch(createBillCashier({ bill: { ...bill, totalAmount: totalAmount } }))
+    function submitBill() {
+        dispatch(createBill({ bill: { ...bill, totalAmount: totalAmount } }))
         convertToPdf();
     };
 
@@ -85,8 +85,8 @@ function CreateBill() {
                             </tr>
                         </table>
                     </div>
-                    <button className="btn btn-primary btn-lg" id="bill-submit-btn" onClick={() => createBill()}>SUBMIT</button>
-                    <button className="btn btn-dark m-2 fs-5" onClick={() => navigate('/cashier/home')}>Back</button>
+                    <button className="btn btn-primary btn-lg" id="bill-submit-btn" onClick={() => submitBill()}>SUBMIT</button>
+                    <button className="btn btn-dark m-2 fs-5" onClick={() => navigate('/home')}>Back</button>
                 </div>
             </div>
         ))

@@ -4,10 +4,6 @@ const adminAPI = axios.create({
     baseURL: "http://localhost:4444/admin"
 });
 
-const cashierAPI = axios.create({
-    baseURL: "http://localhost:4444/cashier"
-});
-
 export const fetchProfile = () => adminAPI.get('/profile');
 export const updateProfile = (admin) => adminAPI.patch('/update', admin);
 
@@ -27,7 +23,3 @@ export const fetchBreads = () => adminAPI.get('/breads');
 export const updateBread = (id, bread) => adminAPI.patch(`/update/bread/${id}`, bread);
 export const addBread = (bread) => adminAPI.post(`/add/bread`, bread);
 export const deleteBread = (id) => adminAPI.delete(`delete/bread/${id}`);
-
-
-export const fetchBreadsCashier = () => cashierAPI.get(`/breads`);
-export const createBillCashier = (bill) => cashierAPI.post(`/create/bill`, bill);

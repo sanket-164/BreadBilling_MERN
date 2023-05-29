@@ -13,47 +13,72 @@ function Settings({ theme, setTheme }) {
         if (e.target.name === 'blue') {
             setTheme({
                 text: "white",
-                color: "primary"
+                color: "primary",
+                background: e.target.name
             })
-            document.body.style.backgroundColor = e.target.name;
-            document.body.style.color = "white";
+            localStorage.setItem('breadBillingTheme', JSON.stringify({
+                text: "white",
+                color: "primary",
+                background: e.target.name
+            }));
         } else if (e.target.name === 'green') {
             setTheme({
                 text: "white",
-                color: "success"
+                color: "success",
+                background: e.target.name
             })
-            document.body.style.backgroundColor = e.target.name;
-            document.body.style.color = "white";
+            localStorage.setItem('breadBillingTheme', JSON.stringify({
+                text: "white",
+                color: "success",
+                background: e.target.name
+            }));
         } else if (e.target.name === 'red') {
             setTheme({
                 text: "white",
-                color: "danger"
+                color: "danger",
+                background: e.target.name
             })
-            document.body.style.backgroundColor = e.target.name;
-            document.body.style.color = "white";
+            localStorage.setItem('breadBillingTheme', JSON.stringify({
+                text: "white",
+                color: "danger",
+                background: e.target.name
+            }));
         } else if (e.target.name === 'yellow') {
             setTheme({
                 text: "black",
-                color: "warning"
+                color: "warning",
+                background: e.target.name
             })
-            document.body.style.backgroundColor = e.target.name;
-            document.body.style.color = "black";
+            localStorage.setItem('breadBillingTheme', JSON.stringify({
+                text: "black",
+                color: "warning",
+                background: e.target.name
+            }));
         } else if (e.target.name === 'white') {
             setTheme({
                 text: "black",
-                color: "light"
+                color: "light",
+                background: e.target.name
             })
-            document.body.style.backgroundColor = e.target.name;
-            document.body.style.color = "black";
+            localStorage.setItem('breadBillingTheme', JSON.stringify({
+                text: "black",
+                color: "light",
+                background: e.target.name
+            }));
         } else if (e.target.name === 'black') {
             setTheme({
                 text: "white",
-                color: "dark"
+                color: "dark",
+                background: e.target.name
             })
-            document.body.style.backgroundColor = e.target.name;
-            document.body.style.color = "white";
+            localStorage.setItem('breadBillingTheme', JSON.stringify({
+                text: "white",
+                color: "dark",
+                background: e.target.name
+            }));
         }
     }
+
     return (
         <div className="container">
 
