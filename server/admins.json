@@ -1,0 +1,16 @@
+[{
+  "_id": {
+    "$oid": "646f45a37d3ace02a2ff205b"
+  },
+  "name": "admin",
+  "password": "$2a$09$aJk93LRQNJosfCIAPivBE.8zH4ap5Ec4eokhcGVNPJPGn/e1XFKSu",
+  "email": "admin@gmail.com",
+  "phone": "9999999999",
+  "gender": "Male",
+  "birthday": {
+    "$date": {
+      "$numberLong": "1113609600000"
+    }
+  },
+  "image": ""
+}]

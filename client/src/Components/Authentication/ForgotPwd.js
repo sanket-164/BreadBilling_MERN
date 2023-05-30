@@ -29,7 +29,7 @@ function ForgotPwd() {
         console.log(e.target.value, pin, pin.length);
         if (e.target.value.length === pin.length) {
             if (e.target.value === pin) {
-                navigate('/authentication/changepwd', { state: { email: user.email, role: user.role } })
+                navigate('/changepwd', { state: { email: user.email, role: user.role } })
             }
         }
     }
@@ -40,20 +40,20 @@ function ForgotPwd() {
                 <div className='m-4'>
                     <h2>Forgot Password</h2>
                     <form onSubmit={handleSubmit}>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" onChange={handleChange} placeholder={`${user.role}'s Email`} required />
+                        <div className="mb-3">
+                            <label htmlFor="email" className="form-label">Email</label>
+                            <input type="email" className="form-control" id="email" name="email" onChange={handleChange} placeholder={`${user.role}'s Email`} required />
                         </div>
                         <div className='d-flex justify-content-center'>
-                            <div class="form-check mx-2">
-                                <input class="form-check-input" type="radio" name="role" id="radio-cashier" value="Cashier" onClick={handleChange} required />
-                                <label class="form-check-label" for="radio-cashier">
+                            <div className="form-check mx-2">
+                                <input className="form-check-input" type="radio" name="role" id="radio-cashier" value="Cashier" onClick={handleChange} required />
+                                <label className="form-check-label" htmlFor="radio-cashier">
                                     I am a Cashier
                                 </label>
                             </div>
-                            <div class="form-check mx-2">
-                                <input class="form-check-input" type="radio" name="role" id="radio-admin" value="Admin" onClick={handleChange} required />
-                                <label class="form-check-label" for="radio-admin">
+                            <div className="form-check mx-2">
+                                <input className="form-check-input" type="radio" name="role" id="radio-admin" value="Admin" onClick={handleChange} required />
+                                <label className="form-check-label" htmlFor="radio-admin">
                                     I am an Admin
                                 </label>
                             </div>
@@ -62,12 +62,12 @@ function ForgotPwd() {
                             <button type='submit' className='btn btn-primary px-4'>Send OTP</button>
                         </div>
                     </form>
-                    <div class="mb-3">
-                        <label for="pin" class="form-label">Verification Pin</label>
-                        <input type="number" class="form-control" id="pin" name="pin" onChange={checkPin} placeholder={`Verification Pin`} required disabled/>
+                    <div className="mb-3">
+                        <label htmlFor="pin" className="form-label">Enter OTP</label>
+                        <input type="number" className="form-control" id="pin" name="pin" onChange={checkPin} placeholder={`OTP`} required disabled/>
                     </div>
                     <div className='d-flex justify-content-center m-2'>
-                        <Link to="/" className='btn btn-primary px-4'>login</Link>
+                        <Link to="/">login</Link>
                     </div>
                 </div>
             </div>

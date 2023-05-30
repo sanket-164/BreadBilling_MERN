@@ -58,7 +58,7 @@ function Home({ theme }) {
                         </tbody>
                     </table>
 
-                    <div className="modal fade" id="deleteBillModal" tabindex="-1" aria-labelledby="deleteBillModalLabel" aria-hidden="true">
+                    <div className="modal fade" id="deleteBillModal" tabIndex="-1" aria-labelledby="deleteBillModalLabel" aria-hidden="true">
                         <div className="modal-dialog modal-dialog-centered">
                             <div className={`modal-content bg-${theme.color}`}>
                                 <div className="modal-header">

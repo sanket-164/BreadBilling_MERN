@@ -7,10 +7,13 @@ import reducers from "./reducers/index.js"
 import App from './App';
 
 const store = createStore(reducers, compose(applyMiddleware(thunk)));
-document.body.style.backgroundColor = "white";
+const root = ReactDOM.createRoot(document.getElementById('root'));
 document.body.style.color = "black";
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root'));
+document.body.style.backgroundColor = "white";
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
+);

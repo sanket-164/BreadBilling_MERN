@@ -52,7 +52,7 @@ function Breads({ theme }) {
         <span className={`bg-${(theme.text === 'white' ? 'light' : 'dark')} rounded-2 h-50 m-3`}>
           <button type="button" className={`btn btn-outline-${theme.color} px-4`} data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add New Bread</button>
         </span>
-        <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
           <div className="modal-dialog modal-dialog-centered">
             <div className={`modal-content bg-${theme.color}`}>
               <div className="modal-header">
@@ -121,7 +121,7 @@ function Breads({ theme }) {
             </tbody>
           </table>
 
-          <div className="modal fade" id="removeBreadModal" tabindex="-1" aria-labelledby="removeBreadModalLabel" aria-hidden="true">
+          <div className="modal fade" id="removeBreadModal" tabIndex="-1" aria-labelledby="removeBreadModalLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered">
               <div className={`modal-content bg-${theme.color}`}>
                 <div className="modal-header">

@@ -36,14 +36,14 @@ function Navbar({ theme }) {
                     </Link>
                 </div>
             </div>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
+            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered">
                     <div className={`modal-content bg-${theme.color}`}>
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to logout?</h5>
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="exampleModalLabel">Are you sure you want to logout?</h5>
                             <button type="button" className={`btn-close bg-${(theme.text === 'white' ? 'light' : 'dark')}`} data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body d-flex justify-content-center">
+                        <div className="modal-body d-flex justify-content-center">
                             <a className={`btn btn-${(theme.text === 'white' ? 'light' : 'dark')} mx-2 px-4`} href="/" onClick={() => {
                                 localStorage.removeItem('breadBilling');
                             }}>YES</a>

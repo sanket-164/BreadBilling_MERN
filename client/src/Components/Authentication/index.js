@@ -10,8 +10,8 @@ function Authentication() {
             <BrowserRouter>
                 <Routes>
                     <Route path='/' exact element={<Login />} />
-                    <Route path='/authentication/forgotpwd' exact element={<ForgotPwd />} />
-                    <Route path='/authentication/changepwd' exact element={<ChangePwd />} />
+                    <Route path='/forgotpwd' exact element={<ForgotPwd />} />
+                    <Route path='/changepwd' exact element={<ChangePwd />} />
                 </Routes>
             </BrowserRouter>
         </div>

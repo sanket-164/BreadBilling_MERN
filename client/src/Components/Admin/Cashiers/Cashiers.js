@@ -73,7 +73,7 @@ function Cashiers({ theme }) {
           <button type="button" className={`btn btn-outline-${theme.color} px-4`} data-bs-toggle="modal" data-bs-target="#hireCashierModal">Hire Cashier</button>
         </span>
       </div>
-      <div className="modal fade" id="hireCashierModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="hireCashierModalLabel" aria-hidden="true">
+      <div className="modal fade" id="hireCashierModal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="hireCashierModalLabel" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered">
           <div className={`modal-content bg-${theme.color}`}>
             <div className="modal-header">
@@ -183,7 +183,7 @@ function Cashiers({ theme }) {
             </tbody>
           </table>
 
-          <div className="modal fade" id="fireCashierModal" tabindex="-1" aria-labelledby="fireCashierModalLabel" aria-hidden="true">
+          <div className="modal fade" id="fireCashierModal" tabIndex="-1" aria-labelledby="fireCashierModalLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered">
               <div className={`modal-content bg-${theme.color}`}>
                 <div className="modal-header">
