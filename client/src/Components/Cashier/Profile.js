@@ -67,7 +67,7 @@ function Profile({ theme }) {
                 </tr>
               </table>
               <div className="d-flex justify-content-center mt-3">
-                <button type='submit' className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-4`}>UPDATE</button>
+                <button type='submit' className={`btn btn-${(theme.text === 'white' ? 'light' : 'dark')} px-4`}>UPDATE</button>
               </div>
             </form>
           </div>

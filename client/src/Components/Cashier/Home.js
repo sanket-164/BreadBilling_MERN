@@ -109,16 +109,16 @@ function Home({ theme }) {
                   {breads.map((bread, i) => {
                     return (<tr>
                       <td>
-                        <img src={(bread.image !== "") && (bread.image !== undefined) ? bread.image : DefaultBread} alt={bread.name} height="65px" width="65px" className={`rounded-2 border border-2 border-${theme.color === 'light' ? 'dark' : 'light'}`} />
+                        <img src={(bread.image !== "") && (bread.image !== undefined) ? bread.image : DefaultBread} alt={bread.name} height="65px" width="65px" className={`rounded-2 border border-2 border-${(theme.text === 'white' ? 'light' : 'dark')}`} />
                       </td>
                       <td>{bread.name}</td>
                       <td>₹{bread.amount}</td>
                       <td className='w-25'>
                         <div align="center">
                           <div className='d-flex'>
-                            <button className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-3 m-1`} name={`${bread.name},plus,${bread.amount}`} onClick={handleQuantityBtn}>ADD</button>
+                            <button className={`btn btn-${(theme.text === 'white' ? 'light' : 'dark')} px-3 m-1`} name={`${bread.name},plus,${bread.amount}`} onClick={handleQuantityBtn}>ADD</button>
                             <input type='number' className='form-control m-1' id={`${bread.name}-quantity`} name={`${bread.name}-quantity-${bread.amount}`} onChange={handleQuantityText}></input>
-                            <button className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-3 m-1`} name={`${bread.name},minus,${bread.amount}`} onClick={handleQuantityBtn}>REMOVE</button>
+                            <button className={`btn btn-${(theme.text === 'white' ? 'light' : 'dark')} px-3 m-1`} name={`${bread.name},minus,${bread.amount}`} onClick={handleQuantityBtn}>REMOVE</button>
                           </div>
                         </div>
                       </td>
@@ -126,7 +126,7 @@ function Home({ theme }) {
                         <input type='number' className='form-control' id={`${bread.name}-total`} disabled></input>
                       </td>
                       <td>
-                        <button className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-3`} onClick={() => navigate('/bread', { state: { bread: bread } })}>VIEW</button>
+                        <button className={`btn btn-${(theme.text === 'white' ? 'light' : 'dark')} px-3 w-100`} onClick={() => navigate('/bread', { state: { bread: bread } })}>View {bread.name}</button>
                       </td>
                     </tr>)
                   })}
@@ -134,7 +134,7 @@ function Home({ theme }) {
               </table>
             </div>
             <div className="d-flex justify-content-center">
-              <button type="submit" className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-3 mb-3 fs-5`}>Generate Bill</button>
+              <button type="submit" className={`btn btn-${(theme.text === 'white' ? 'light' : 'dark')} px-3 mb-3 fs-5`}>Generate Bill</button>
             </div>
           </form>
         </div>

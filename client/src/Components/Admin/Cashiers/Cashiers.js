@@ -69,7 +69,7 @@ function Cashiers({ theme }) {
     <div>
       <div className="d-flex justify-content-between">
         <h2 className='m-3'>Cashiers</h2>
-        <span className={`bg-${theme.color === 'light' ? 'dark' : 'light'} rounded-2 h-50 m-3`}>
+        <span className={`bg-${(theme.text === 'white' ? 'light' : 'dark')} rounded-2 h-50 m-3`}>
           <button type="button" className={`btn btn-outline-${theme.color} px-4`} data-bs-toggle="modal" data-bs-target="#hireCashierModal">Hire Cashier</button>
         </span>
       </div>
@@ -78,7 +78,7 @@ function Cashiers({ theme }) {
           <div className={`modal-content bg-${theme.color}`}>
             <div className="modal-header">
               <h5 className="modal-title" id="hireCashierModalLabel">Hire New Cashier</h5>
-              <button type="button" id="modalClose" className={`btn-close bg-${theme.color === 'light' ? 'dark' : 'light'}`} data-bs-dismiss="modal" aria-label="Close"
+              <button type="button" id="modalClose" className={`btn-close bg-${(theme.text === 'white' ? 'light' : 'dark')}`} data-bs-dismiss="modal" aria-label="Close"
                 onClick={() =>
                   setCashier({
                     name: "",
@@ -136,7 +136,7 @@ function Cashiers({ theme }) {
                 </div>
               </div>
               <div className="modal-footer d-flex justify-content-center">
-                <button type="submit" className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-4`}>Hire Cashier</button>
+                <button type="submit" className={`btn btn-${(theme.text === 'white' ? 'light' : 'dark')} px-4`}>Hire Cashier</button>
               </div>
             </form>
           </div>
@@ -163,13 +163,13 @@ function Cashiers({ theme }) {
                 return (<tr>
                   <th role="button" scope="row">{i + 1}</th>
                   <td role="button" onClick={() => navigateToCashier(cashier)}>
-                    <img src={(cashier.image !== "") && (cashier.image !== undefined) ? cashier.image : DefaultCashier} alt={cashier.name} height="65px" width="65px" className={`rounded-2 border border-2 border-${theme.color === 'light' ? 'dark' : 'light'}`} />
+                    <img src={(cashier.image !== "") && (cashier.image !== undefined) ? cashier.image : DefaultCashier} alt={cashier.name} height="65px" width="65px" className={`rounded-2 border border-2 border-${(theme.text === 'white' ? 'light' : 'dark')}`} />
                   </td>
                   <td role="button" onClick={() => navigateToCashier(cashier)}>{cashier.name}</td>
                   <td role="button" onClick={() => navigateToCashier(cashier)}>{cashier.gender}</td>
                   <td role="button" onClick={() => navigateToCashier(cashier)}>{new Date(cashier.birthday).toLocaleDateString()}</td>
                   <td>
-                    <button type="button" className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} w-100 my-2 btn-lg`} value={cashier._id} onClick={() => navigate('/cashier/bills', { state: { cashierId: cashier._id, cashierName: cashier.name } })}>
+                    <button type="button" className={`btn btn-${(theme.text === 'white' ? 'light' : 'dark')} w-100 my-2 btn-lg`} value={cashier._id} onClick={() => navigate('/cashier/bills', { state: { cashierId: cashier._id, cashierName: cashier.name } })}>
                       VIEW BILLS
                     </button>
                   </td>
@@ -188,7 +188,7 @@ function Cashiers({ theme }) {
               <div className={`modal-content bg-${theme.color}`}>
                 <div className="modal-header">
                   <h5 className="modal-title" id="fireCashierModalLabel">Fire {fire_Cashier.name}</h5>
-                  <button type="button" className={`btn-close bg-${theme.color === 'light' ? 'dark' : 'light'}`} data-bs-dismiss="modal" aria-label="Close"></button>
+                  <button type="button" className={`btn-close bg-${(theme.text === 'white' ? 'light' : 'dark')}`} data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div className="modal-body">
                   <div className="modal-body">
@@ -196,8 +196,8 @@ function Cashiers({ theme }) {
                   </div>
                 </div>
                 <div className="modal-footer d-flex justify-content-center">
-                  <button type="button" className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-4`} onClick={() => { dispatch(deleteCashier(fire_Cashier.id)); navigate("/cashiers") }} data-bs-dismiss="modal">YES</button>
-                  <button type="button" className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-4`} data-bs-dismiss="modal">NO</button>
+                  <button type="button" className={`btn btn-${(theme.text === 'white' ? 'light' : 'dark')} px-4`} onClick={() => { dispatch(deleteCashier(fire_Cashier.id)); navigate("/cashiers") }} data-bs-dismiss="modal">YES</button>
+                  <button type="button" className={`btn btn-${(theme.text === 'white' ? 'light' : 'dark')} px-4`} data-bs-dismiss="modal">NO</button>
                 </div>
               </div>
             </div>

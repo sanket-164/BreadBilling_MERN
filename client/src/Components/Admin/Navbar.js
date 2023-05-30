@@ -5,7 +5,7 @@ import Sanket from '../../Images/Sanket.png'
 function Navbar({ theme }) {
 
     return (
-        <nav className={`navbar navbar-expand-lg navbar-${theme.color === 'light' ? 'light' : 'dark'} bg-${theme.color}`}>
+        <nav className={`navbar navbar-expand-lg navbar-${theme.text === 'black' ? 'light' : 'dark'} bg-${theme.color}`}>
             <div className="container-fluid bg-opacity-50">
                 <Link className="navbar-brand" to="/">🍞BreadBilling</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,13 +47,13 @@ function Navbar({ theme }) {
                     <div className={`modal-content bg-${theme.color}`}>
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to logout?</h5>
-                            <button type="button" className={`btn-close bg-${theme.color === 'light' ? 'dark' : 'light'}`} data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" className={`btn-close bg-${(theme.text === 'white' ? 'light' : 'dark')}`} data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body d-flex justify-content-center">
-                            <a className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} mx-2 px-4`} href="/" onClick={() => {
+                            <a className={`btn btn-${(theme.text === 'white' ? 'light' : 'dark')} mx-2 px-4`} href="/" onClick={() => {
                                 localStorage.removeItem('breadBilling');
                             }}>YES</a>
-                            <button type="button" className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} mx-2 px-4`}  data-bs-dismiss="modal">NO</button>
+                            <button type="button" className={`btn btn-${(theme.text === 'white' ? 'light' : 'dark')} mx-2 px-4`}  data-bs-dismiss="modal">NO</button>
                         </div>
                     </div>
                 </div>

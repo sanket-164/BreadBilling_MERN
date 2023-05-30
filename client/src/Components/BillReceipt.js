@@ -12,7 +12,7 @@ function BillReceipt() {
 
     const convertToPdf = () => {
         const element = document.getElementById('bill');
-        html2Pdf().from(element).save();
+        html2Pdf().from(element).save(`${bill.customer_name}-bill`);
     };
 
     return (

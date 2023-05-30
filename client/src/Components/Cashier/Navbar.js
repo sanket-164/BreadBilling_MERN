@@ -41,13 +41,13 @@ function Navbar({ theme }) {
                     <div className={`modal-content bg-${theme.color}`}>
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to logout?</h5>
-                            <button type="button" className={`btn-close bg-${theme.color === 'light' ? 'dark' : 'light'}`} data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" className={`btn-close bg-${(theme.text === 'white' ? 'light' : 'dark')}`} data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body d-flex justify-content-center">
-                            <a className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} mx-2 px-4`} href="/" onClick={() => {
+                            <a className={`btn btn-${(theme.text === 'white' ? 'light' : 'dark')} mx-2 px-4`} href="/" onClick={() => {
                                 localStorage.removeItem('breadBilling');
                             }}>YES</a>
-                            <button type="button" className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} mx-2 px-4`} data-bs-dismiss="modal">NO</button>
+                            <button type="button" className={`btn btn-${(theme.text === 'white' ? 'light' : 'dark')} mx-2 px-4`} data-bs-dismiss="modal">NO</button>
                         </div>
                     </div>
                 </div>

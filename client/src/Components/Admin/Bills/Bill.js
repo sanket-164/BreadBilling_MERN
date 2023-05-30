@@ -84,8 +84,8 @@ function Bill({ theme }) {
               </tr>
             </table>
             <div className="d-flex justify-content-between">
-              <Link to="/bills" className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'}`}>Back</Link>
-              <button type='submit' className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'}`}>UPDATE</button>
+              <Link to="/bills" className={`btn btn-${(theme.text === 'white' ? 'light' : 'dark')}`}>Back</Link>
+              <button type='submit' className={`btn btn-${(theme.text === 'white' ? 'light' : 'dark')}`}>UPDATE</button>
             </div>
           </form>
         </div>

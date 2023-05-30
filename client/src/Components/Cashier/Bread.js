@@ -33,7 +33,7 @@ const Bread = ({ theme }) => {
             </tr>
           </table>
           <div className="d-flex justify-content-center mt-3">
-            <Link to="/home" className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-4 fs-5`}>Bread Panel</Link>
+            <Link to="/home" className={`btn btn-${(theme.text === 'white' ? 'light' : 'dark')} px-4 fs-5`}>Bread Panel</Link>
           </div>
         </div>
       </div>

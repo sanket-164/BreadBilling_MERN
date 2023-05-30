@@ -17,7 +17,8 @@ function CreateBill() {
 
     const convertToPdf = () => {
         const element = document.getElementById('bill');
-        html2Pdf().from(element).save();
+        html2Pdf().from(element).save(`₹${totalAmount}-bill`);
+        navigate('/home')
     };
 
     for (let i = 0; i < breadsArr.length; i++) {

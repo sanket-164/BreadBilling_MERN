@@ -60,7 +60,7 @@ function CashierBills({ theme }) {
                             <div className={`modal-content bg-${theme.color}`}>
                                 <div className="modal-header">
                                     <h5 className="modal-title" id="deleteBillModalLabel">Delete Bill</h5>
-                                    <button type="button" className={`btn-close bg-${theme.color === 'light' ? 'dark' : 'light'}`} data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <button type="button" className={`btn-close bg-${(theme.text === 'white' ? 'light' : 'dark')}`} data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div className="modal-body">
                                     <div className="modal-body">
@@ -68,8 +68,8 @@ function CashierBills({ theme }) {
                                     </div>
                                 </div>
                                 <div className="modal-footer d-flex justify-content-center">
-                                    <button type="button" className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-4`} onClick={() => { dispatch(deleteBill(delete_Bill_Id)); navigate("/bills") }} data-bs-dismiss="modal">YES</button>
-                                    <button type="button" className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-4`} data-bs-dismiss="modal">NO</button>
+                                    <button type="button" className={`btn btn-${(theme.text === 'white' ? 'light' : 'dark')} px-4`} onClick={() => { dispatch(deleteBill(delete_Bill_Id)); navigate("/bills") }} data-bs-dismiss="modal">YES</button>
+                                    <button type="button" className={`btn btn-${(theme.text === 'white' ? 'light' : 'dark')} px-4`} data-bs-dismiss="modal">NO</button>
                                 </div>
                             </div>
                         </div>

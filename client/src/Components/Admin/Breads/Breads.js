@@ -49,7 +49,7 @@ function Breads({ theme }) {
     <div>
       <div className="d-flex justify-content-between">
         <h2 className='m-3'>Breads</h2>
-        <span className={`bg-${theme.color === 'light' ? 'dark' : 'light'} rounded-2 h-50 m-3`}>
+        <span className={`bg-${(theme.text === 'white' ? 'light' : 'dark')} rounded-2 h-50 m-3`}>
           <button type="button" className={`btn btn-outline-${theme.color} px-4`} data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add New Bread</button>
         </span>
         <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -57,7 +57,7 @@ function Breads({ theme }) {
             <div className={`modal-content bg-${theme.color}`}>
               <div className="modal-header">
                 <h5 className="modal-title" id="staticBackdropLabel">Enter Details for New Bread</h5>
-                <button type="button" className={`btn-close bg-${theme.color === 'light' ? 'dark' : 'light'}`} data-bs-dismiss="modal" aria-label="Close" onClick={() => setBread({ name: "", amount: "", description: "", image: "" })}></button>
+                <button type="button" className={`btn-close bg-${(theme.text === 'white' ? 'light' : 'dark')}`} data-bs-dismiss="modal" aria-label="Close" onClick={() => setBread({ name: "", amount: "", description: "", image: "" })}></button>
               </div>
               <form onSubmit={handleSubmit}>
                 <div className="modal-body">
@@ -81,7 +81,7 @@ function Breads({ theme }) {
                   </div>
                 </div>
                 <div className="modal-footer d-flex justify-content-center">
-                  <button type="submit" className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'}`} data-bs-dismiss="modal">Add New Bread</button>
+                  <button type="submit" className={`btn btn-${(theme.text === 'white' ? 'light' : 'dark')}`} data-bs-dismiss="modal">Add New Bread</button>
                 </div>
               </form>
             </div>
@@ -107,7 +107,7 @@ function Breads({ theme }) {
                 return (<tr role="button">
                   <th scope="row">{i + 1}</th>
                   <td onClick={() => navigateToBread(bread)}>
-                    <img src={(bread.image !== "") && (bread.image !== undefined) ? bread.image : DefaultBread} alt={bread.name} height="65px" width="65px" className={`rounded-2 border border-2 border-${theme.color === 'light' ? 'dark' : 'light'}`} />
+                    <img src={(bread.image !== "") && (bread.image !== undefined) ? bread.image : DefaultBread} alt={bread.name} height="65px" width="65px" className={`rounded-2 border border-2 border-${(theme.text === 'white' ? 'light' : 'dark')}`} />
                   </td>
                   <td onClick={() => navigateToBread(bread)}>{bread.name}</td>
                   <td onClick={() => navigateToBread(bread)}>₹{bread.amount}</td>
@@ -126,7 +126,7 @@ function Breads({ theme }) {
               <div className={`modal-content bg-${theme.color}`}>
                 <div className="modal-header">
                   <h5 className="modal-title" id="removeBreadModalLabel">Remove {remove_Bread.name}</h5>
-                  <button type="button" className={`btn-close bg-${theme.color === 'light' ? 'dark' : 'light'}`} data-bs-dismiss="modal" aria-label="Close"></button>
+                  <button type="button" className={`btn-close bg-${(theme.text === 'white' ? 'light' : 'dark')}`} data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div className="modal-body">
                   <div className="modal-body">
@@ -134,8 +134,8 @@ function Breads({ theme }) {
                   </div>
                 </div>
                 <div className="modal-footer d-flex justify-content-center">
-                  <button type="button" className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-4`} onClick={() => { dispatch(deleteBread(remove_Bread.id)); navigate("/breads") }} data-bs-dismiss="modal">YES</button>
-                  <button type="button" className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-4`} data-bs-dismiss="modal">NO</button>
+                  <button type="button" className={`btn btn-${(theme.text === 'white' ? 'light' : 'dark')} px-4`} onClick={() => { dispatch(deleteBread(remove_Bread.id)); navigate("/breads") }} data-bs-dismiss="modal">YES</button>
+                  <button type="button" className={`btn btn-${(theme.text === 'white' ? 'light' : 'dark')} px-4`} data-bs-dismiss="modal">NO</button>
                 </div>
               </div>
             </div>
