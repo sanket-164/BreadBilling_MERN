@@ -1,7 +1,11 @@
 import axios from 'axios';
 
 const adminAPI = axios.create({
-    baseURL: "http://localhost:4444/admin"
+    baseURL: "http://localhost:4444/admin",
+    headers: {
+        'Content-Type': 'application/json',
+        'authToken': JSON.parse(localStorage.getItem('breadBilling'))?.token
+    }
 });
 
 export const fetchProfile = () => adminAPI.get('/profile');
@@ -15,6 +19,8 @@ export const deleteCashier = (id) => adminAPI.delete(`delete/cashier/${id}`);
 
 export const fetchBill = (id) => adminAPI.get(`/bill/${id}`);
 export const fetchBills = () => adminAPI.get('/bills');
+export const fetchTodayBills = () => adminAPI.get('/today/bills');
+export const fetchBillsOfCashier = (cashierId) => adminAPI.get(`/cashier/bills/${cashierId}`);
 export const updateBill = (id, bill) => adminAPI.patch(`/update/bill/${id}`, bill);
 export const deleteBill = (id) => adminAPI.delete(`delete/bill/${id}`);
 

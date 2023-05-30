@@ -28,7 +28,11 @@ export const cashiers = (data = [], action) => {
 
 export const bills = (data = [], action) => {
     switch (action.type) {
+        case "FETCH_TODAY_BILLS":
+            return action.payload;
         case "FETCH_BILLS":
+            return action.payload;
+        case "FETCH_BILLS_OF_CASHIER":
             return action.payload;
         case "UPDATE_BILL":
             return data.map((bill) => bill._id === action.payload._id ? action.payload : bill);

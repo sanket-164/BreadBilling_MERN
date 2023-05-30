@@ -13,7 +13,7 @@ export const fetchCashier = async (req, res) => {
             res.status(400).json({ message: "Cashier does not exist" });
         }
     } catch (error) {
-       console.log(error.message);
+        console.log(error.message);
         res.status(500).json({ message: error.message });
     }
 }
@@ -21,11 +21,11 @@ export const fetchCashier = async (req, res) => {
 export const fetchCashiers = async (req, res) => {
 
     try {
-        let data = await Cashier.find();
+        let data = await Cashier.find().sort({ joinedAt: 'desc' });
 
         res.status(200).json(data);
     } catch (error) {
-       console.log(error.message);
+        console.log(error.message);
         res.status(500).json({ message: error.message });
     }
 }
@@ -41,7 +41,7 @@ export const hireCashier = async (req, res) => {
 
         res.status(201).json(data);
     } catch (error) {
-       console.log(error.message);
+        console.log(error.message);
         res.status(500).json({ message: error.message });
     }
 }
@@ -67,7 +67,7 @@ export const updateCashier = async (req, res) => {
             res.status(400).json({ message: "Cashier does not exist" });
         }
     } catch (error) {
-       console.log(error.message);
+        console.log(error.message);
         res.status(500).json({ message: error.message });
     }
 }
@@ -85,7 +85,7 @@ export const deleteCashier = async (req, res) => {
         }
 
     } catch (error) {
-       console.log(error.message);
+        console.log(error.message);
         res.status(500).json({ message: error.message });
     }
 }

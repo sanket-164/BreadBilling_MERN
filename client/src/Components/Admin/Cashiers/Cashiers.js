@@ -169,7 +169,7 @@ function Cashiers({ theme }) {
                   <td role="button" onClick={() => navigateToCashier(cashier)}>{cashier.gender}</td>
                   <td role="button" onClick={() => navigateToCashier(cashier)}>{new Date(cashier.birthday).toLocaleDateString()}</td>
                   <td>
-                    <button type="button" className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} w-100 my-2 btn-lg`}onClick={fireCashier}>
+                    <button type="button" className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} w-100 my-2 btn-lg`} value={cashier._id} onClick={() => navigate('/cashier/bills', { state: { cashierId: cashier._id, cashierName: cashier.name } })}>
                       VIEW BILLS
                     </button>
                   </td>

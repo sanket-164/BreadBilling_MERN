@@ -90,7 +90,7 @@ function Home({ theme }) {
   }, [location, dispatch])
   return (
     <div>
-      {(breads.length !== 0) && (
+      {(breads.length > 0) && (
         <div className='container mt-3'>
           <form onSubmit={handleSubmit}>
             <div className="row mb-3">

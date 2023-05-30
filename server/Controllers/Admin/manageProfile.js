@@ -3,7 +3,7 @@ import Admin from "../../Models/Admin.js";
 export const fetchProfile = async (req, res) => {
 
     try {
-        const data = await Admin.find({ _id: "646f45a37d3ace02a2ff205b" });
+        const data = await Admin.find({ _id: req.user.id });
 
         res.status(200).json(data[0]);
     } catch (error) {
@@ -16,7 +16,7 @@ export const updateProfile = async (req, res) => {
     const { admin } = req.body;
     
     try {
-        const data = await Admin.findByIdAndUpdate( "646f45a37d3ace02a2ff205b", admin );
+        const data = await Admin.findByIdAndUpdate( req.user.id, admin );
         
         if(data != null) {
             res.status(200).json(admin);

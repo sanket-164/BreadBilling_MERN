@@ -1,34 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { fetchTodayBills } from "../../Actions/admin.js"
 import { useLocation } from 'react-router-dom';
-import { deleteBill } from '../../Actions/admin.js';
+import { fetchBillsOfCashier, deleteBill } from "../../../Actions/admin.js"
 
-function Home({ theme }) {
+function CashierBills({ theme }) {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const location = useLocation();
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(fetchTodayBills());
-    }, [location, dispatch])
-
+    const bills = useSelector((data) => data.bills);
     const [delete_Bill_Id, setDelete_Bill_Id] = useState(0);
 
     const getBillId = (e) => {
         setDelete_Bill_Id(e.target.value);
     }
 
-    const bills = useSelector((data) => data.bills);
+    useEffect(() => {
+        dispatch(fetchBillsOfCashier(location.state.cashierId));
+    }, [location, dispatch]);
 
     const navigateToBill = (bill) => {
-        navigate('/billreceipt', { state: { bill: bill, URL: '/home' } });
-    }
+        navigate('/billreceipt', { state: { bill: bill, URL: '/cashier/bills', cashierId: location.state.cashierId, cashierName: location.state.cashierName } });
+    };
 
     return (
         <div>
-            <h2 className='m-3'>Today's Bills</h2>
+            <h2 className='m-3'>Bills by {location.state.cashierName}</h2>
             {(bills.length !== 0) && (
                 <div className='container'>
                     <table className={`table table-${theme.color} table-hover`}>
@@ -91,4 +88,4 @@ function Home({ theme }) {
     )
 }
 
-export default Home
+export default CashierBills

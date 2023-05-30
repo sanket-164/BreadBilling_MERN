@@ -2,6 +2,8 @@ import Admin from "../../Models/Admin.js";
 import Cashier from "../../Models/Cashier.js";
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+dotenv.config();
 
 export const login = async (req, res) => {
     const { email, password, role } = req.body;
@@ -16,7 +18,7 @@ export const login = async (req, res) => {
             const checkPass = await bcrypt.compare(password, admin.password);
 
             if (checkPass) {
-                const token = jwt.sign({ email: admin.email, id: admin._id }, 'sanket');
+                const token = jwt.sign({ email: admin.email, id: admin._id }, process.env.SECRET_KEY);
                 res.json({ success: true, token: token });
             } else {
                 return res.json({ success: false, message: "Wrong Creadentials" })

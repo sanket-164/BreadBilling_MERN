@@ -5,7 +5,7 @@ function BillReceipt() {
     const navigate = useNavigate();
     const location = useLocation();
     const bill = location.state.bill;
-    
+
     let breadsArr = Object.entries(bill.breads).filter((bread) => {
         return bread[1].quantity > 0;
     });
@@ -72,7 +72,14 @@ function BillReceipt() {
                         </table>
                     </div>
                     <button className="btn btn-primary btn-lg" id="bill-submit-btn" onClick={() => convertToPdf()}>DOWNLOAD</button>
-                    <button className="btn btn-dark m-2 fs-5" onClick={() => navigate(location.state.URL)}>Back</button>
+                    <button className="btn btn-dark m-2 fs-5" onClick={() => {
+                        if (location.state.URL === '/cashier/bills') {
+                            navigate(location.state.URL, { state: { cashierId: location.state.cashierId, cashierName: location.state.cashierName } });
+                        } else {
+                            navigate(location.state.URL);
+                        }
+                    }
+                    }>Back</button>
                 </div>
             </div>
         ))

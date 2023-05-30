@@ -1,6 +1,7 @@
 import * as api from "../API/cashier.js";
 
 export const fetchProfile = () => async (dispatch) => {
+    
     try {
         const { data } = await api.fetchProfile();
         
@@ -25,6 +26,16 @@ export const fetchBreads = () => async (dispatch) => {
         const { data } = await api.fetchBreads();
         
         dispatch({ type: "FETCH_BREADS_CASHIER", payload: data });
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+export const fetchBills = () => async (dispatch) => {
+    try {
+        const { data } = await api.fetchBills();
+        
+        dispatch({ type: "FETCH_BILLS_CASHIER", payload: data });
     } catch (err) {
         console.log(err.message);
     }

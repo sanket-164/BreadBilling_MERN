@@ -17,10 +17,6 @@ function Profile({ theme }) {
     })
   }
 
-  if (admin === {}) {
-    navigate('/profile')
-  }
-
   useEffect(() => {
     dispatch(fetchProfile());
   }, [location, dispatch])
@@ -32,7 +28,7 @@ function Profile({ theme }) {
   }
 
   const birthDate = new Date(admin.birthday);
-  const admin_birthdate = `${birthDate.getFullYear()}-${((birthDate.getMonth() + 1) < 10)? `0${birthDate.getMonth() + 1}`: birthDate.getMonth() + 1}-${(birthDate.getDate() < 10)? `0${birthDate.getDate()}`: birthDate.getDate()}`;
+  const admin_birthdate = `${birthDate.getFullYear()}-${((birthDate.getMonth() + 1) < 10) ? `0${birthDate.getMonth() + 1}` : birthDate.getMonth() + 1}-${(birthDate.getDate() < 10) ? `0${birthDate.getDate()}` : birthDate.getDate()}`;
   console.log(admin_birthdate);
 
   return (
@@ -64,14 +60,14 @@ function Profile({ theme }) {
               <tr>
                 <th>Birth Date</th>
                 <td><input className="form-control" type="date" name="birthday" value={admin_birthdate} onChange={handleChange}></input></td>
-            </tr>
-          </table>
-          <div className="d-flex justify-content-center mt-3">
-            <button type='submit' className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-4`}>UPDATE</button>
-          </div>
-        </form>
+              </tr>
+            </table>
+            <div className="d-flex justify-content-center mt-3">
+              <button type='submit' className={`btn btn-${theme.color === 'light' ? 'dark' : 'light'} px-4`}>UPDATE</button>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
     </div >
   );
 }

@@ -1,10 +1,17 @@
 import express from "express";
+
+import checkUser from '../Middlewares/checkUser.js';
+import checkAdmin from '../Middlewares/checkAdmin.js';
+
 import { fetchProfile, updateProfile } from "../Controllers/Admin/manageProfile.js";
 import { hireCashier, updateCashier, fetchCashier, fetchCashiers, deleteCashier } from "../Controllers/Admin/manageCashiers.js";
 import { addBread, deleteBread, updateBread, fetchBread, fetchBreads } from "../Controllers/Admin/manageBreads.js";
-import { fetchBills, fetchBill, deleteBill, updateBill } from "../Controllers/Admin/manageBills.js";
+import { fetchBills, fetchTodayBills, fetchBill, deleteBill, updateBill, fetchBillsOfCashier } from "../Controllers/Admin/manageBills.js";
 
 const router = express.Router();
+
+router.use(checkUser, checkAdmin);
+
 
 router.get('/profile', fetchProfile);
 router.patch('/update', updateProfile);
@@ -16,7 +23,9 @@ router.patch('/update/cashier/:id', updateCashier);
 router.delete('/delete/cashier/:id', deleteCashier);
 
 
+router.get('/today/bills', fetchTodayBills);
 router.get('/bill/:id', fetchBill);
+router.get('/cashier/bills/:cashierId', fetchBillsOfCashier);
 router.get('/bills', fetchBills);
 router.patch('/update/bill/:id', updateBill);
 router.delete('/delete/bill/:id', deleteBill);

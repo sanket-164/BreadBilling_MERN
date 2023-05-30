@@ -22,9 +22,9 @@ function Sanket({ theme }) {
                             </tr>
                             <tr>
                                 <td align="center">
-                                    <a href="https://www.linkedin.com/in/sanket-sadadiya-9a0150222/" target="_blank" className="fa fa-linkedin"></a>
-                                    <a href="https://www.instagram.com/sanket_164/" target="_blank" className="fa fa-instagram"></a>
-                                    <a href="https://github.com/sanket-164" target="_blank"> <i className="fa fa-brands fa-github"></i></a>
+                                    <a href="https://www.linkedin.com/in/sanket-sadadiya-9a0150222/" target="_blank" rel='noreferrer' className="fa fa-linkedin"><i className="fa fa-brands fa-github"></i></a>
+                                    <a href="https://www.instagram.com/sanket_164/" target="_blank" rel='noreferrer' className="fa fa-instagram"><i className="fa fa-brands fa-github"></i></a>
+                                    <a href="https://github.com/sanket-164" target="_blank" rel='noreferrer'> <i className="fa fa-brands fa-github"></i></a>
                                 </td>
                             </tr>
                         </table>

@@ -1,5 +1,17 @@
 import Bill from "../../Models/Bill.js"
 
+export const fetchTodayBills = async (req, res) => {
+    try {
+        const data = await Bill.find().sort({ purchasedAt: "desc" });
+        const todayBills = data.filter(bill => new Date(bill.purchasedAt).toDateString() === new Date().toDateString());
+        
+        res.status(200).json(todayBills);
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).json({ message: error.message });
+    }
+}
+
 export const fetchBill = async (req, res) => {
     const { id } = req.params;
 
@@ -12,31 +24,31 @@ export const fetchBill = async (req, res) => {
             res.status(400).json({ message: "Bill does not exist" });
         }
     } catch (error) {
-       console.log(error.message);
+        console.log(error.message);
         res.status(500).json({ message: error.message });
     }
 }
 
 export const fetchBills = async (req, res) => {
     try {
-        const data = await Bill.find();
-        
+        const data = await Bill.find().sort({ purchasedAt: "desc" });
+
         res.status(200).json(data);
     } catch (error) {
-       console.log(error.message);
+        console.log(error.message);
         res.status(500).json({ message: error.message });
     }
 }
 
 export const fetchBillsOfCashier = async (req, res) => {
-    const { id } = req.params;
-    
+    const { cashierId } = req.params;
+
     try {
-        const data = await Bill.find({ cashier_id: id });
-        
+        const data = await Bill.find({ cashier_id: cashierId }).sort({ purchasedAt: "desc" });
+
         res.status(200).json(data);
     } catch (error) {
-       console.log(error.message);
+        console.log(error.message);
         res.status(500).json({ message: error.message });
     }
 }
@@ -53,7 +65,7 @@ export const updateBill = async (req, res) => {
             res.status(400).json({ message: "Bill does not exist" });
         }
     } catch (error) {
-       console.log(error.message);
+        console.log(error.message);
         res.status(500).json({ message: error.message });
     }
 }
@@ -71,7 +83,7 @@ export const deleteBill = async (req, res) => {
         }
 
     } catch (error) {
-       console.log(error.message);
+        console.log(error.message);
         res.status(500).json({ message: error.message });
     }
 }
